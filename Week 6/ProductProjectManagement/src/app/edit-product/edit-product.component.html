@@ -1,0 +1,17 @@
+<h1>Edit Product</h1>
+<div id="container">
+  <!-- bind the product fields in the form to update the product we are going to store -->
+  <form (submit)="update()" #formData="ngForm">
+    <div class="inputs" *ngIf="product">  
+      <label for="">Title:</label><span>
+      <input type="text" name="title" [(ngModel)]="product.title"></span><br>
+      <label for="">Price:</label>
+      <input type="number" name="price" [(ngModel)]="product.price"><br>
+      <label for="">Image Url:</label>
+      <input type="text" name="url" [(ngModel)]="product.url"><br>
+      <!-- update and delete functions linked to methods we established in the component.ts -->
+      <button class="delete" (click)="delete(product)">DELETE</button>
+      <input class='submit' type="submit" value="UPDATE">
+    </div>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+input{
+    border: 1px solid black;
+    margin: 0px, 0px, 15px, 25px;
+}
+label{
+    margin-right: 40px;
+}
+.submit{
+    margin: 15px;
+    background-color: blue;
+    color: white;
+}
+.delete{
+    display: inline-block;
+    background-color: red;
+    color: white;
+}

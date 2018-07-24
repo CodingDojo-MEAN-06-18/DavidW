@@ -1,0 +1,25 @@
+.products{
+    border: 2px solid black;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    display: inline-block;
+    margin: 25px;
+}
+img{
+    width: auto;
+    height: 140px;
+    margin: 10px;
+}
+button{
+    width: 150px;
+    border: 1px solid black;
+    margin: 2px;
+}
+#edit{
+    background-color: orange;
+}
+#delete{
+    background-color: red;
+    color: white;
+}

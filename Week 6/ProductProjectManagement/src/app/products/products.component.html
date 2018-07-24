@@ -1,0 +1,17 @@
+<div id="container">
+  <h1>Products List</h1>
+  <div *ngIf="products" id="productContainer">
+    <div *ngFor="let product of products" class="products">
+      <img *ngIf="product.url" src="../../{{product.url}}" alt=""> 
+      <!-- <img *ngIf="product.url" src="../../assets/xbox.jpeg" alt="">  -->
+      <!-- store the url from assets/name... and it can change how many folders to go up based on location in directory -->
+      <div>
+        <p *ngIf="product.title">{{product.title}}</p>
+        <p *ngIf="product.price">${{product.price}}</p>
+        <!-- {{product.price | currency = USD?}} -->
+      </div>
+      <button id="edit" [routerLink]="['/products', 'edit', product.id]">EDIT</button>
+      <button id="delete" (click)="delete(product)">DELETE</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<h5>Alpha Component</h5>
+<form (submit)="onSubmit()">
+  <input type="text" name="newTask.title" [(ngModel)]="newTask.title"/>
+  <input type="text" name="newTask.description" [(ngModel)]="newTask.description"/>
+  <input type="submit">
+</form>
+
+<!-- my code below !!!!
+<h5>Alpha Component</h5>
+<form (submit)="onSubmit(inputInfo)">
+  you can pass the information like i did in the paramaters or bind it below
+  <input type="text" name="info" [(ngModel)]="inputInfo">
+  BINDS "inputInfo to alpha.component.ts varaible inputInfo when submitted from the onSubmit()"
+  <input type="submit">
+</form> -->

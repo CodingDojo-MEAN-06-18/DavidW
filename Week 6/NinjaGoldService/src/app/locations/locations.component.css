@@ -1,0 +1,29 @@
+#locations div{
+    display: inline-block;
+    margin: 25px 0px 25px 50px;
+    border: 2px solid black;
+    width: 175px;
+    height: 150px;
+    text-align: center;
+    vertical-align: top;
+}
+#locations{
+    width: 1015px;
+    height: 205px;
+    border: 2px solid black;
+}
+h5{
+    margin: 0px;
+    padding: 0px;
+}
+#top{
+    height: 25px;
+    border: 2px solid black;
+    margin-top: 10px;
+    text-align: center;
+    width: 1015px;
+}
+button{
+    background-color: grey;
+    width: 100px; 
+}

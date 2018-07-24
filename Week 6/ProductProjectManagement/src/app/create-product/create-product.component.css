@@ -1,0 +1,11 @@
+h3{
+    margin: 5px;
+}
+input{
+    margin-left: 25px; 
+}
+#submit{
+    background-color: green;
+    border: 1px solid black;
+    color: white;
+}

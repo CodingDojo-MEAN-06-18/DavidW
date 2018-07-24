@@ -1,0 +1,12 @@
+<div id="container">
+  <h1>PPM - Project Product Management </h1>
+  <div id="top">
+      <a [routerLink]="['']">Home</a> | 
+      <a [routerLink]="['products']">Product List</a> | 
+      <a [routerLink]="['products/new']">Product Creation</a> | 
+  </div>
+  <fieldset id="bottom">
+          <legend>Router Outlet</legend>
+          <router-outlet></router-outlet>
+  </fieldset>
+</div>

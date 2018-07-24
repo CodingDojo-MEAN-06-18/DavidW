@@ -1,0 +1,35 @@
+<div id="container">
+  <h1>Create a New Product</h1>
+  <form #formData='ngForm' (submit)="create()">
+     <h3>Title: <span>
+       <input 
+        type="text" 
+        name="title" 
+        required 
+        minlength="4" 
+        maxlength="24"
+        [(ngModel)]="newProduct.title"
+        #title='ngModel'
+        placeholder="Title"
+        /></span></h3>
+    <span *ngIf="title.touched && title.errors">{{ title.errors | json }}</span><br>
+    <h3>Price: <span><input 
+      type="number" 
+      name="price" 
+      required
+      [(ngModel)]="newProduct.price"
+      #price='ngModel'
+      placeholder="Price"
+      /></span></h3>    
+      <span *ngIf="price.touched && price.errors">{{ price.errors | json }}</span><br>
+    <h3>Image Url: <span><input 
+      type="text" 
+      name="url" 
+      [(ngModel)]="newProduct.url"
+      #url='ngModel'
+      placeholder="Url"
+      /></span></h3>
+      <span *ngIf="url.touched"> Url is optional</span><br>
+      <input [disabled]="formData.invalid" type="submit" id="submit" value="Create"> 
+        </form>
+    </div>
