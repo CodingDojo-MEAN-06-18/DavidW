@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- loads ajax/jquery and sockets -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <title>Epic Button Game</title>
+
+    <!-- when the document loads a serious of functions are listening and waiting to be executed -->
+    <script>
+        $(document).ready(function () {
+            // stores an instance of io socket
+            var socket = io();
+
+            // when the button is clicked it emits a request to the server
+            $('#bigButton').on('click', function() {
+                socket.emit('buttonClicked', function() {
+                });
+            });
+
+            // when the reset button is clicked it emits a request to the server
+            $('#resetButton').on('click', function() {
+                socket.emit('resetClicked', function() {
+                });
+            });
+
+            // when the server sends updateMessage function the counter is updated on the id: '#number'
+            socket.on('updateMessage', function(number) {
+                $("#number").html(number);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Epic Button Assignment</h1>
+        <h2>This button has been clicked <span id="number"></span> time(s)</h1>
+        <h3>Push the button to update the count!</h2>
+        <button id="bigButton">Push me!!!</button>
+        <br><br><br><br>
+        <button id="resetButton">Reset Count!!!</button>
+    </div>  
+</body>
+</html>

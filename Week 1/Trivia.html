@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <title>Trivia</title>
+</head>
+<body>
+    <div>
+        <button id="button">Play Trivia Game</button>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#button').click(function() { 
+                $.get("https://opentdb.com/api.php?amount=10", getTriviaData)
+            });
+            function getTriviaData(data) {
+                for (let index = 0; index < data.results.length; index++){
+                    let store_random = [];
+                    for (let count = 0; count < data.results[index].incorrect_answers.length; count++){
+                        store_random.push(data.results[index].incorrect_answers[count]);
+                    }
+                    store_random.push(data.results[index].correct_answer);
+                    // $('body').append('<p>' + "Category: " + data.results + '</p>');
+                    // $('body').append('<p>' + "Category: " + data.results[0] + '</p>');
+                    $('body').append('<p>' + "Category: " + data.results[index].category + '</p>');
+                    $('body').append('<p>' + "Type: " + data.results[index].type + '</p>');
+                    $('body').append('<p>' + "Difficulty: " + data.results[index].difficulty + '</p>');
+                    $('body').append('<p>' + "Question: " + data.results[index].question + '</p>');
+                    $('body').append('<form id="form' + index+ '">');
+                    $('body').append('<div>');
+                    for (let index = 0; index < store_random.length; index++){
+                        $('body').append('<input type="radio" name="option" value= "' + store_random[index] + '">');
+                        $('body').append('<label for="' + store_random[index] + '">' + store_random[index] + '</label>');
+                        $('body').append('<br>');
+                    }
+                    $('body').append('</div>');
+                    $('body').append('<div>');
+                    $('body').append('<button type="submit" id="button' + index+ '">' + "Submit" + '</button>');
+                    $('body').append('</div>');
+                    $('body').append('</form>');
+                    $('body').append('<br>');
+                }
+            }
+        });  
+    </script>
+</body>
+</html>

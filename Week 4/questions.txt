@@ -1,0 +1,28 @@
+                                            QUESTIONS I HAVE
+
+1. explain promises better
+
+2. when do i use "mongoose.Promise = global.Promise;"
+
+3. keep getting this error
+
+    (node:14839) DeprecationWarning: current URL string parser is deprecated, 
+    and will be removed in a future version. To use the new parser, pass option 
+    { useNewUrlParser: true } to MongoClient.connect.
+
+does this fix it?
+
+    mongoose.connect('mongodb://127.0.0.1/message_board', function(err, db) {
+        if (err) {
+            console.log("error here");
+            console.log(err);
+        }
+    });
+
+4. git hub is messed up
+
+
+
+from lecture 
+implements?
+

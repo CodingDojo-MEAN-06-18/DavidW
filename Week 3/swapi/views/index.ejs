@@ -1,0 +1,19 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script>
+    $(document).ready(function(){
+        $('#peopleBtn').click(function(){
+            // let's make the request to our OWN server!
+            for (x = 0; x < 10; x++) {
+                $.get('/people', function(data){
+                    // log the data to be sure we have it before we dive into manipulating the DOM
+                        console.log("got the data", data);
+                    document.body.innerHTML += `<div>${data}</div>`;
+                }, 'json');
+            }
+        });
+    });
+</script>
+<body>
+    <button id="peopleBtn">People</button>
+    <p><%= context.body %></p>
+</body>

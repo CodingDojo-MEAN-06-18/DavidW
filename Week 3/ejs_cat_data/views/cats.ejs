@@ -1,0 +1,12 @@
+<html>
+    <link rel="stylesheet" href="my_css.css">
+<body>
+    <h2>Here are all the cats:</h2>
+    <% for (var x in cats) { %>
+        <h3><%= cats[x].name %> Cat</h3>
+        <h4>Picture:</h4>
+        <a href=/cats/<%= cats[x].name %>> <img src=<%= cats[x].img_source %>></a>
+        <hr>
+    <% } %>
+</body>
+</html>

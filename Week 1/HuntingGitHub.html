@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <title>Hunting GitHub</title>
+</head>
+<body>
+    <div>
+        <button id="button">Click for User Info</button>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#button').click(function() { 
+                $.get("https://api.github.com/users/daveydog24", displayName)
+            });
+            // Notice that displayName is a function that takes in 1 parameter (this is the data that comes back from the API)
+            function displayName(data) {
+                $('body').append($(`<p> User Name: ${data.name} </p>`));
+                $('body').append($(`<p> User Login Name: ${data.login} </p>`));
+            }
+        });  
+    </script>
+</body>
+</html>

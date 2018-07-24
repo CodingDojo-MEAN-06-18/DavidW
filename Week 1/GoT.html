@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <title>GOT Assignemnt</title>
+    <style>
+            img{
+                display: inline-block;
+                width: 250px;
+                margin: 0px;
+                padding: 0px;
+            }
+            div{
+                display: inline-block;
+                margin: 25px;
+            }
+    </style>
+    <h1>Click Picture For House Information</h1>
+    <div id="House_Stark">
+        <img src="gameofthrones/stark.jpg" alt="Stark Image">
+    </div>
+    <div id="House_Targaryen">
+        <img src="gameofthrones/targaryen.jpg" alt="Taragaryen Image">
+    </div>
+    <div id="House_Lannister">
+        <img src="gameofthrones/lannister.jpg" alt="Lannister Image">
+    </div>
+    <div id="House_Baratheon">
+        <img src="gameofthrones/baratheon.png" alt="Baratheon Image">
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#House_Stark').on("click", function() {
+                let $container = $( "body.div" ).append(function() {
+                    $.get("https://anapioficeandfire.com/api/houses/362", getHouses)
+                    return $( this ).contents();
+                });
+            });
+            $('#House_Targaryen').on("click", function() {
+                let $container = $( "body.div" ).replaceWith(function() {
+                $.get("https://anapioficeandfire.com/api/houses/378", getHouses)
+                    return $( this ).contents();
+                });
+            });
+            $('#House_Lannister').on("click", function() {
+                let $container = $( "body.div" ).replaceWith(function() {
+                $.get("https://anapioficeandfire.com/api/houses/230", getHouses)
+                    return $( this ).contents();
+                });
+            });
+            $('#House_Baratheon').on("click", function() {
+                let $container = $( "body.div" ).replaceWith(function() {
+                $.get("https://anapioficeandfire.com/api/houses/16", getHouses)
+                    return $( this ).contents();
+                });
+            });
+            
+            // Notice that displayName is a function that takes in 1 parameter (this is the data that comes back from the API)
+            function getHouses(data) {
+                $('body').append('<div class="container">');
+                $('body').append('<p>' + "House Name: " + data.name + '</p>');
+                $('body').append('<p>' + "House Words: " + data.words + '</p>');
+                $('body').append('<p>' + "House Region: " + data.region + '</p>');
+                $('body').append('<p>' + "House Titles: " + data.titles + '</p>');
+                $('body').append('</div>');
+            }
+        });  
+    </script>
+    </head>
+<body>
+    <div id="info">
+            <div class="container">
+    
+            </div>
+        </div>
+    <div>
+
+    </div>
+</body>
+</html>
+
+

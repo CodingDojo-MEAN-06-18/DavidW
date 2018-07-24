@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <title>DojoQuery</title>
+    <script type="text/javascript">
+			$(document).ready(function(){
+                function $Dojo(id) {
+                    this.myId = document.getElementById(id);
+                    this.click = function (callback) {
+                        this.myId.addEventListener("click", callback);
+                    };
+                    this.hover = function (hoverin, hoverout) {
+                        this.myId.addEventListener("mouseover", hoverin);
+                        this.myId.addEventListener("mouseout", hoverout);                    };
+                    return this;
+                }
+                $Dojo("clicked").click(function() { console.log("The button was clicked!") });
+                $Dojo("hovering").hover(function() { console.log("The button was hovered on!") });
+            });
+        </script>
+            <!-- <script>
+            $( "li" ).hover(function() {
+                $( this ).append( $( "<span> ***</span>" ) );}, 
+                function() {
+                    $( this ).find( "span:last" ).remove();
+                });
+            
+            $( "li.fade" ).hover(function() {
+                $( this ).fadeOut( 100 );
+                $( this ).fadeIn( 500 );
+            });
+            </script> -->
+    </head>
+<body>
+    <h1>DojoQuery Assignment</h1>
+    <div>
+        <button id="clicked">click me</button>
+        <button id="hovering">hover</button>
+    </div>
+</body>
+</html>
+
+

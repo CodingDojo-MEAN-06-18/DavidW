@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather Api</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            function storageAvailable(type) {
+                try {
+                    var storage = window[type],
+                        x = '__storage_test__';
+                    storage.setItem(x, x);
+                    storage.removeItem(x);
+                    return true;
+                }
+                catch(e) {
+                    return e instanceof DOMException && (
+                        // everything except Firefox
+                        e.code === 22 ||
+                        // Firefox
+                        e.code === 1014 ||
+                        // test name field too, because code might not be present
+                        // everything except Firefox
+                        e.name === 'QuotaExceededError' ||
+                        // Firefox
+                        e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+                        // acknowledge QuotaExceededError only if there's something already stored
+                        storage.length !== 0;
+                }
+            }
+            if (storageAvailable('localStorage')) {
+                alert("welcome back, your last session info is below!")
+                var last_result = localStorage.getItem('city');
+                console.log(last_result);
+                if(last_result){
+                    $("#results").html(last_result);
+                }
+            }
+            else {
+                alert("Welcome to my weather API Assignment!!!")
+            }
+            $('form').submit(function(element){
+                element.preventDefault();
+                var api_key = '527433346fce7eb6086579727f850b8d'; //my own personal api key for the open weather website
+                var city = $('input#city').val(); //creating the varibal of whatever city is typed everytime its submitted later
+                $.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${api_key}`, function(results){ //searches the api on the webiste and starts a function to gather the resultults stored on the site
+                    //console.log(results) logs all the results of the city in the console log.
+                    var html = ''; //creates blank string primed for information from the api
+                    html += `<p> ${results['name']}: ${results['weather'][0]['description']} </p>`; // adds a paragraph with the citys name, the weather and weather description with the information coming from the results just recived from the api 
+                    html += `<p> Temperature: ${results['main']['temp']} F</p>`; //adds a paragraph with the tempature from the search 
+                    html += `<p> Coord: ${results['coord'].lat}, ${results['coord'].lon}` //adds a paragraph with the coordinates of the city searched 
+                    localStorage.setItem('city', html);
+                    $('#results').html(html); // in the div results it changes the html with all the parapgraphs and information we just stored and will change not append the information each time a new search is made
+                }, 'jsonp');
+                return false; 
+            })
+        });
+    </script>
+</head>
+<body>
+    <h1>Welcome to My Weather API Assignnment</h1>
+    <div id="weather">
+        <h4>Enter any city to display its current weather:</h4>
+        <form>
+            <label for='city'>City:
+                <input type='text' name='city' id='city'/>
+            </label>
+            <input type='submit' name='submit'/>
+        </form>
+        <div id="results"></div>
+    </div>
+</body>
+</html>
