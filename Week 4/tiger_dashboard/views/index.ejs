@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Tigers</title>
+</head>
+<body>
+    <div id="container">
+        <fieldset>
+            <legend>Tigers</legend>
+            <div id="Tigers">
+                <% if (tigers) { %>
+                    <% for (tiger of tigers) { %>
+                        <a href="/tigers/<%= tiger.id %>"><h3 class="name">Name: "<%= tiger.name %>"</h3></a>
+                        <h3 class="type">Type: "<%= tiger.type %>"</h3> 
+                    <% } %>
+                <% } %>
+            </div>
+        </fieldset>
+        <a href="/tigers/new">Create new Tiger</a>
+    </div>
+</body>
+</html>

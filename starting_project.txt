@@ -1,0 +1,26 @@
+npm init -y 
+npm install express --save
+npm install ejs --save
+npm install body-parser --save
+npm install mongoose --save
+
+modularization format
+
+server 
+    config
+        routes.js
+    controllers
+        xxx's.js (plural)
+    models
+        xxx.js (singular)
+views
+    index.ejs
+    etc.
+.gitignore
+server.js
+
+require and export when needed
+
+other files maybe needed
+flash
+session

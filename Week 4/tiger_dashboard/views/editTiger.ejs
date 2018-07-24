@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Tiger</title>
+</head>
+<body>
+    <h1>Edit <%= tiger.name %>!</h1>
+    <form action="/tigers/<%= tiger.id %>" method='post'>
+        Name: <input type="text" name="name" value="<%= tiger.name %>">
+        Type: <input type="text" name="type" value="<%= tiger.type %>">
+        <input type="submit" value="Edit Tiger!">
+    </form>
+    <a href="/">Home</a>
+    <form action="/tigers/destroy/<%= tiger.id %>" method='post'>
+        Caution!!!!===>
+        <input type="submit" value="Delete Tiger!">
+    </form>
+
+</body>
+</html>

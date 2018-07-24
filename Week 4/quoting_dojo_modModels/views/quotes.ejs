@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Quoting Dojo</title>
+</head>
+<body>
+    <div id="container">
+        <fieldset>
+            <legend>Quotes Board</legend>
+            <div id="error">
+
+            </div>
+            <div id="Quotes">
+                <% if (quotes) { %>
+                    <% for (quote of quotes) { %>
+                        <h3 class="quotes">Quote: "<%= quote.quote %>"</h3>
+                        <h3 class="users">-<%= quote.name %> at <%= quote.createdAt %></h3>
+                    <% } %>
+                <% } %>
+            </div>
+        </fieldset>
+    </div>
+</body>
+</html>
