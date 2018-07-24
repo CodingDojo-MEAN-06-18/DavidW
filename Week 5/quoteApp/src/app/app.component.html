@@ -1,0 +1,46 @@
+<h1>Add a Quote</h1>
+
+<form #formData='ngForm' (submit)="onSubmit($event, formData)">
+  <input 
+    type="text" 
+    id="content"
+    name="content" 
+    required 
+    minlength="4" 
+    maxlength="100"
+    [(ngModel)]='quote.content'
+    #quoteContent='ngModel'
+  />
+  <div id="errors">
+        <span *ngIf="quoteContent.touched && quoteContent.errors">{{ quoteContent.errors | json }}</span><br>
+        <span *ngIf="authorName.touched && authorName.errors">{{ authorName.errors | json }}</span>
+  </div>
+  <br>
+  Author:
+  <input 
+    type="text" 
+    id="author"
+    name="author" 
+    required 
+    minlength="1" 
+    maxlength="20"
+    [(ngModel)]='quote.author'
+    #authorName='ngModel'
+  />
+  <button [disabled]="formData.invalid" type="submit">Add Quote</button>
+</form>
+
+<h1>Quotes List:</h1>
+<div id="quotes">
+    <div *ngFor='let quote of quotes'>
+        <div class="quoteLoop">
+            <p>{{ quote.content }}</p>
+            <p>{{ quote.author }}</p>
+        </div>
+        <div class="buttons">
+            <button class="up">Vote Up</button><br>
+            <button class="down">Vote Down</button><br>
+            <button class="delete">Delete</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+/* .ng-invalid { 
+    background-color: red;
+
+}
+.ng-valid {
+    background-color: green;
+
+ }
+.ng-untouched { 
+    background-color: blue;
+
+}
+.ng-touched { 
+    background-color: yellow;
+
+}
+.ng-dirty { 
+    background-color: brown;
+
+}
+.ng-pristine { 
+    background-color: grey;
+
+} */
+p{
+    margin: 5px; 
+    display: inline-block;
+}

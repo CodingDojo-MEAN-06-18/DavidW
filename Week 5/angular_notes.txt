@@ -1,0 +1,51 @@
+So let’s review Angular-- 
+    - we now have an MVC structured Framework (with Component Based Architecture) for code consistency, 
+    - we are using Test Driven Development (TDD) to validate functionality during development, 
+    - we utilize the Single Page Application approach to avoid unnecessary reloads, 
+    - we are using Client Side Templating to give the work to each individual user’s browser rather, 
+    and help scale our application. 
+    - coding style that aims to avoid repeating code (referred to a D.R.Y. code standards - Do not Repeat Yourself).
+    - 
+All these features help improve our coding experience and/or the user experience.
+
+When to consider something different then angular.....
+    Alternatively, if our projects remain small in size, with a small development team (1-3), 
+    and the amount of complexity (animation and changes on our page) remain minimal, in these 
+    situations, we would reconsider using Angular, and start looking into other libraries such as 
+    jQuery, VueJS, ReactJS, etc. Angular gives us a lot of features but identifying what is 
+    the right tool for the project is most important.
+
+App Module(Angular)                         ----Layout-----
+--------------------
+    Component A             (AppComponent) -  or initial component (base layer)
+--------------------
+     TypeScript             (for interactivity specific to this component)
+    (JavaScript)
+--------------------
+        HTML                (for the Template specific to this component)
+--------------------
+        CSS                 (for Styling specific to this component)
+--------------------
+
+Component-A: Parent Component ^^^^^^^^ (wrapper in a sense)
+
+Component-B: Header-Content
+Component-C: Nav-bar
+Component-D: Main-Content
+Component-E: Footer-Content 
+Component-F: Sub-main-Content
+
+Service
+    To hold data on the front end, we will be using the Service as the place to 
+    store it. As we need data in each Component, we will have that component call 
+    to the service to retrieve the data. 
+
+Data Flow
+    An alternative way of passing data around, is sharing the data between components. 
+    Later we will also cover how data can be passed from parent component (Component-A) 
+    to child components (Component-B, C, D, and E). We will also find how we can get the 
+    child components (Component-B, C, D, and E) send data back up to their parent component (Component-A). Or having Component-F send data to Component-A (through component D). Sharing data through a Service is the common approach.
+
+
+
+

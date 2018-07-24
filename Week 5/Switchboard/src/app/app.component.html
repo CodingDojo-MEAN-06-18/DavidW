@@ -1,0 +1,66 @@
+
+<!-- <div style="text-align:left"> -->
+    <h1 style="text-align:center">{{ title }}</h1>
+    <!-- <div id="blocks"> 
+      <div class="outterBox">
+        <div class="innerBox" [ngStyle]="{'background-color': box1}" >
+          <button *ngIf="BUTTONTEST1" (click)="getButtonStatus(1)" [ngClass]="{selected: theButton1 === 'On'}">ON</button>
+          <button *ngIf="!BUTTONTEST1" (click)="getButtonStatus(1)" [ngClass]="{selected: theButton1 === 'On'}">OFF</button>
+        </div>
+      </div>
+      <div class="outterBox">
+        <div class="innerBox" [ngStyle]="{'background-color': box2}" >
+          <button *ngIf="BUTTONTEST2" (click)="getButtonStatus(2)" [ngClass]="{selected: theButton2 === 'On'}">ON</button>
+          <button *ngIf="!BUTTONTEST2" (click)="getButtonStatus(2)" [ngClass]="{selected: theButton2 === 'On'}">OFF</button>
+        </div>
+      </div>
+      <div class="outterBox">
+        <div class="innerBox" [ngStyle]="{'background-color': box3}" >
+          <button *ngIf="BUTTONTEST3" (click)="getButtonStatus(3)" [ngClass]="{selected: theButton3 === 'On'}">ON</button>
+          <button *ngIf="!BUTTONTEST3" (click)="getButtonStatus(3)" [ngClass]="{selected: theButton3 === 'On'}">OFF</button>
+        </div>
+      </div>
+      <div class="outterBox">
+        <div class="innerBox" [ngStyle]="{'background-color': box4}" >
+          <button *ngIf="BUTTONTEST4" (click)="getButtonStatus(4)" [ngClass]="{selected: theButton4 === 'On'}">ON</button>
+          <button *ngIf="!BUTTONTEST4" (click)="getButtonStatus(4)" [ngClass]="{selected: theButton4 === 'On'}">OFF</button>
+        </div>
+      </div>
+      <div class="outterBox">
+        <div class="innerBox" [ngStyle]="{'background-color': box5}" >
+          <button *ngIf="BUTTONTEST5" (click)="getButtonStatus(5)" [ngClass]="{selected: theButton5 === 'On'}">ON</button>
+          <button *ngIf="!BUTTONTEST5" (click)="getButtonStatus(5)" [ngClass]="{selected: theButton5 === 'On'}">OFF</button>
+        </div>
+      </div>
+      <div class="outterBox">
+        <div class="innerBox" [ngStyle]="{'background-color': box6}" >
+          <button *ngIf="BUTTONTEST6" (click)="getButtonStatus(6)" [ngClass]="{selected: theButton6 === 'On'}">ON</button>
+          <button *ngIf="!BUTTONTEST6" (click)="getButtonStatus(6)" [ngClass]="{selected: theButton6 === 'On'}">OFF</button>
+        </div>
+      </div>
+      <div class="outterBox">
+        <div class="innerBox" [ngStyle]="{'background-color': box7}" >
+          <button *ngIf="BUTTONTEST7" (click)="getButtonStatus(7)" [ngClass]="{selected: theButton7 === 'On'}">ON</button>
+          <button *ngIf="!BUTTONTEST7" (click)="getButtonStatus(7)" [ngClass]="{selected: theButton7 === 'On'}">OFF</button>
+        </div>
+      </div>
+      <div class="outterBox">
+        <div class="innerBox" [ngStyle]="{'background-color': box8}" >
+          <button *ngIf="BUTTONTEST8" (click)="getButtonStatus(8)" [ngClass]="{selected: theButton8 === 'On'}">ON</button>
+          <button *ngIf="!BUTTONTEST8" (click)="getButtonStatus(8)" [ngClass]="{selected: theButton8 === 'On'}">OFF</button>
+        </div>
+      </div> -->
+      <div class="container">
+        <div class="row">
+          <div class="switch" *ngFor="let switch of switches; let idx = index">
+            <!-- <p>{{switch}}</p> -->
+            <button *ngIf="switch"[ngClass]="{'on': switch}"(click)="flipSwitch(idx)">ON</button>
+            <button *ngIf="!switch" [ngClass]="{'on': switch}" (click)="flipSwitch(idx)">OFF</button>
+          </div>
+        </div>
+      </div>
+    <!-- </div>
+  </div> -->
+
+    
+

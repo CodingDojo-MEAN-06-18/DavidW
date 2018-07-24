@@ -1,0 +1,43 @@
+/* #blocks{
+    display: inline-block;
+    margin: 0px;
+}
+.outterBox {
+    background-color: rgb(116, 59, 12);
+    padding: 10px;
+    margin: 2px;
+    display: inline-block;
+}
+.innerBox {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: bottom;
+}
+button{
+    border: none;
+    margin: 10px 0px 0px 0px;
+} */
+
+div.container {
+    width: 600px;
+    min-height: 200px;
+    margin: 0 auto;
+}
+div.row {
+    margin: 0 auto;
+}
+div.switch {
+    display: inline-block;
+}
+button {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+button.on {
+    background-color: green;
+}

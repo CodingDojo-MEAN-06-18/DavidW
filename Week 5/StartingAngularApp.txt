@@ -1,0 +1,29 @@
+npm install -g @angular/cli  //install a ton of modules
+ng new first-angular-app   // creates new angular app
+cd first-angular-app    // navigates to the new app
+ng serve -- open // starts app on a server (4200) and opens it in a browser
+
+ng new my-app
+cd my-app
+ng generate component task
+cd src
+cd app
+cd task
+ng generate component task-list
+ng generate component task-new
+ng generate service task
+
+creates this below vvvvvv
+
+my-app
+    parent-component
+        child-component
+        child-component
+    service
+    app.component.ts
+    app.component.html
+    app.component.css
+    app.module.ts
+assets
+environemnets
+etc.

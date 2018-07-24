@@ -1,0 +1,164 @@
+
+
+
+What benefits does it offer the developers?
+TypeScript offers many additional features to help us become more efficient and effective.
+
+(*) - top 6 features
+
+(*) Basic Types
+(*) Variable Declarations
+(*) Interfaces
+(*) Classes
+(*) Functions
+Generics
+Enums
+Type Inference
+Type Compatibility
+Advanced Types
+Symbols
+Iterators and Generators
+(*) Modules
+Namespaces
+Decorators
+JSX
+
+CODE WILL ALWAYS BE RAN IN JAVASCRIPT 
+    -good news is tyescript works backwards comptabale and can go from es6 to es5 
+    - great webstie        www.typescriptlang.org 
+                        playground - great tool to use 
+                    - type typescript on the left and see JS on the right
+
+Basic types
+    // Strings
+    var myString: string = "This is a string";
+    
+    // Numbers
+    var myNumber: number = 7;
+    
+    // Boolean
+    var myBoolean: boolean = true;
+    
+    // Array of  Numbers 
+    var arrayOfNumbers: number[];
+
+    // (alternative way)
+    var arrayOfNumbers: Array<number>
+
+    // any (assign to any type, and change to any type, anytime)
+    var anything: any = 7;
+
+Variable Declarations are used to better scope our variables. 
+    var - This means that if we know a variable only needs to be used within a function
+    let - further limit the scope of a variable to a block (such as an if statement, or a for loop)
+    const  If we create a variable of which we know will never change its value,
+
+ 
+// Never type (will never reach the end of the function)
+function errorHandler(message: string): never{
+	throw new Error(message);
+}
+// Void (returns nothing) 
+function printValue(val: string): void{
+	console.log(val);
+	return; //  <----- dont really need this 
+}
+// returns what you defined below vvvv
+function printValue(val: string): number{
+	console.log(val);
+	return number; //  <------    ^^^^^^ returns whats definded above (string, boolean, number)
+}
+
+class SLNode { //JS actually doesnt have classes this is "syntatical sugar" as theye cal lit 
+                //they are actually function constructors that include prototypes.
+	val: number; //defines the variable 
+	
+	constructor(valueP: number){ //constructor class helps store the new class values you pass in 
+		this.val = valueP;
+	}
+	doSomethingFun(){
+		console.log("This is FUN!");
+	}
+}
+let firstSLNode = new SLNode(1);
+
+
+Data Binding
+    Data binding is similar to Interpolation, it will print the value, 
+    however we do this by binding to an element's attributes. For example,
+    we can bind to an input's value property. To inform Angular that we want 
+    it to evaluate the variable and then define the property, we put [ ] around 
+    the property name like so, otherwise if we don't use [ ] around the property, 
+    it will print the variable name as opposed to its value:
+
+import { Component } from '@angular/core';
+@Component({ 
+	selector: 'app-root', 
+	templateUrl: './app.component.html', 
+	styleUrls: ['./app.component.css']
+})
+export class AppComponent { 
+	number = 10;
+}
+
+<input [value]='number'> // will set the value property to 10
+<input value='number'> // will set the value property to 'number'
+
+Pipes(filters)
+
+    Using Interpolation, we can print data on our template, however sometimes we need 
+    this data to be formatted in different ways. This is what pipes offer us. They are 
+    filters we can apply on variables while we are using interpolation to print them.
+
+import { Component } from '@angular/core';
+@Component({ 
+	selector: 'app-root', 
+	templateUrl: './app.component.html', 
+	styleUrls: ['./app.component.css']
+})
+export class AppComponent { 
+	user = {
+		firstName: 'Darth',
+		lastName: 'Vader'
+	}
+	amount = 1.20;
+	today = new Date();
+}
+json
+    //pipe is (and should be) very commonly used when coding. It allows you to view the data 
+    you expect in the template file, without having to question or guess if the right data is
+    present and available.
+{{ user | json }} // result -> '{ "firstName": "Darth", "lastName": "Vader" }'
+
+uppercase
+    //presents the variable in all upper case
+{{ user.firstName | uppercase }} // result -> 'DARTH'
+
+lowercase
+    //presents the variable in all lower case
+{{ user.lastName | lowercase }} // result -> 'vader'
+
+currency
+    //pipe can be modified to give different visual representations with different currencies,
+     here are some popular examples, we will use the variable amount with a value of 1.20:
+{{ amount | currency }} // result -> USD1.20
+{{ amount | currency:'AUS' }} // result -> AUS1.20 (:'VAL' represents the type of currency)
+{{ amount | currency:'USD':true }} // result -> $1.20 (true/false determines the replacement of currency title to symbol)
+
+date
+    //pipe is used for manipulating the visual representation of a date.
+{{ today | date:'fullDate' }} -> Tuesday, May 16, 2017 
+{{ today | date:'longDate' }} -> May 16, 2017 
+{{ today | date:'shortDate' }} -> 5/16/2017
+    //pipe is also used to manipulate the visual representation of time.
+{{ today | date:'mediumTime' }} -> 12:00:00 AM
+{{ today | date:'shortTime' }} -> 12:00 AM
+    //pipe is also used to manipulate the visual representation of datetime.
+{{ today | date:'medium' }} -> May 16, 2017, 12:00:00 AM
+{{ today | date:'short' }} -> 5/16/2017, 12:00 AM
+
+
+
+
+
+

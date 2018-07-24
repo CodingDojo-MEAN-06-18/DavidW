@@ -1,0 +1,26 @@
+<div style="text-align:left">
+  <h1>{{ title }}</h1>
+  <div id="blocks">
+    <button (click)="onButtonClick($event)">Click me!</button>
+    <div [ngStyle]="{'background-color': colorArray0}" >  </div>
+    <div [ngStyle]="{'background-color': colorArray1}" >  </div>
+    <div [ngStyle]="{'background-color': colorArray2}" >  </div>
+    <div [ngStyle]="{'background-color': colorArray3}" >  </div>
+    <div [ngStyle]="{'background-color': colorArray4}" >  </div>
+    <div [ngStyle]="{'background-color': colorArray5}" >  </div>
+    <div [ngStyle]="{'background-color': colorArray6}" >  </div>
+    <div [ngStyle]="{'background-color': colorArray7}" >  </div>
+    <div [ngStyle]="{'background-color': colorArray8}" >  </div>
+    <div [ngStyle]="{'background-color': colorArray9}" >  </div>
+    <!-- <span *ngFor="let color of colors">
+      <h1>{{color}}</h1>
+      <div [ngStyle]="{'background-color': 'color' }"` >  </div>
+    </span> -->
+  </div>
+</div>
+
+<!-- everything commented out was me trying to loop through the array into my html but it wouldnt work
+if just used the variable in the H1 i could get it to print with the hash tag but then if
+i put it in the nstyle it would never render :( -->
+  
+  

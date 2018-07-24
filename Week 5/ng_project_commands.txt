@@ -1,0 +1,207 @@
+                                                * angular commands *    
+ng new <project name> 
+cd <project name> 
+ng serve = starts server
+ng serve -- open = starts server and opens in browser
+ng generate component my-component = Creates a component
+ng generate service my-service = Creates a service
+ng generate class my-class = Creates a class
+
+Always import....... 
+    FormsModule - Utilized for Angular forms (almost all assignments will need this module).
+    HttpModule - Utilized for Angular HTTP requests to any API.
+
+ 
+import { NgModule } from '@angular/core'; 
+import { BrowserModule } from '@angular/platform-browser'; 
+import { AppComponent } from './app.component'; 
+import { FormsModule } from '@angular/forms'; // <-- Import FormsModule
+import { HttpModule } from '@angular/http'; // <-- Import HttpModule
+
+@NgModule({ 
+	declarations: [ 
+		AppComponent
+	], 
+	imports: [
+		BrowserModule,
+		FormsModule, // <-- Include module in our AppModules
+		HttpModule // <-- Include module in our AppModules
+	], 
+	providers: [], 
+	bootstrap: [AppComponent] 
+}) 
+export class AppModule { }
+
+-----------------------------------------------------------------------------------------------
+        When importing new modules, ensure you first import them from the specific 
+        library as shown above, and then include the imported modules within 
+        the imports array.
+-----------------------------------------------------------------------------------------------
+
+*****************************************************************************************
+Structural Directives
+*ngIf
+	*ngIf is a directive that allows us to control an element's visibility on our page.
+	For example, here is a simple component that includes a basic *ngIf structural directive. 
+	The value of the directive needs to evaluate to either true or false - this will 
+	dictate if the element will be visible or not.
+
+import { Component } from '@angular/core';
+@Component({ 
+	selector: 'app-root', 
+	templateUrl: './app.component.html', 
+	styleUrls: ['./app.component.css']
+})
+export class AppComponent { 
+	loggedIn = true;
+}
+
+<h5 *ngIf='loggedIn'> You're logged in as Goku </h5> // will show
+<h5 *ngIf='!loggedIn'> Please log in. </h5> // will not show (notice the '!' which reverses the boolean value)
+
+*****************************************************************************************
+Structural Directives
+*ngFor
+	*ngFor directive is similar to a JavaScript for loop. It allows us to repeat an element 
+	and expose a variable for each instance of the element that is equal to each part of that 
+	array. So essentially, it takes an array and returns each part of the array in the following 
+	format: *ngFor='let one ofimport { Component } from '@angular/core';
+
+@Component({ 
+	selector: 'app-root', 
+	templateUrl: './app.component.html', 
+	styleUrls: ['./app.component.css']
+})
+export class AppComponent { 
+	numbers = [1,2,3,4,5]
+}
+ many' Here is an example:
+ 
+<h5 *ngFor='let number of numbers'>
+	{{ number }}
+</h5>
+
+visual result:
+<h5>1</h5>
+<h5>2</h5>
+<h5>3</h5>
+<h5>4</h5>
+<h5>5</h5>
+
+OPTIONAL ALTERNATIVE: If we need the value of each element in the array, 
+as well as the index in which we are currently on, we write the *ngFor a 
+little differently as shown here:
+
+<h5 *ngFor='let number of [1,2,3,4,5]; let idx = index'>
+	{{ number }}
+</h5>
+
+visual result: ???
+
+*****************************************************************************************
+Attribute Directives
+[ngStyle]
+	The following example shows the most simple approach in giving in-line styling.
+	 We simply give the element a property of [ngStyle]. Inside of the double quotes 
+	 we add an object, we write CSS styling within the object (similar to a CSS file), 
+	 however we need to add single quotes around each key and each value as shown below.
+
+app.component.html - (Template)
+
+<span [ngStyle]="{
+  'background-color': 'green',
+  'font-weight': 'bold'
+}" >ngStyle</span>
+
+	If we want a value to be given by a variable made in our class, we simply omit 
+	the quotes, and Angular will evaluate the variable's value. Let's assume in 
+	our Component, we made a variable named 'color' and defined it to a string: 
+	'red'. In this case, color will evaluate to 'red' and that color will take effect.
+
+.../app.component.ts - (TypeScript)
+
+import { Component } from '@angular/core';
+@Component({ 
+  selector: 'app-root', 
+  templateUrl: './app.component.html', 
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent { 
+  color = 'red';
+}
+
+.../app.component.html - (Template)
+
+<span [ngStyle]="{
+  'background-color': color,
+  'font-weight': 'bold'
+}" >ngStyle w/Variable</span>
+
+
+
+// Inline styling is messy, because of the clutter it causes in our HTML. Therefore classes 
+are much more popular and used in most situations. First we need to go to our 
+CSS file and define a class, in this case the 'red' class will give us a red background.
+
+.../app.component.css - (Styling)
+
+.red { background-color: red }
+
+.../app.component.html - (Template)
+
+<span class='red'>Styling</span>
+
+*****************************************************************************************
+Attribute Directives
+[ngClass]
+	Now lets use Angular's method of using [ngClass], this allows us to pass an object 
+	into [ngClass]="" with class names as the keys and booleans as the values. If the 
+	value is true, the class will be applied, if its false, it won't. Here is an 
+	example where we want the class of red to be applied and bold to not be applied.
+
+app.component.css - (Styling)
+
+.red { background-color: red }
+.bold { font-weight: bold }
+
+app.component.html - (Template)
+<span [ngClass]="{ 'red': true, 'bold': false }">I should be red but not bolded.</span>
+<span [ngClass]="{'red': true, 'bold': true }">I should be red and bolded.</span>
+
+
+This is great but it's still static - meaning, we are hard coding 'true' and 'false'. Alternatively, 
+we can define variables in our 'app.component.ts' as true or false, and then use them in the [ngClass] 
+object. Later when we learn click events, we can change the true variables to false and vice versa, 
+giving us a very effective way to change styling based on user interactions.
+
+In the following example we have a variable 'switch' set to true, a class 'on' set to background-color 
+of yellow and we are printing a span tag. The tag includes [ngClass] and we use the class name as 
+the key 'on' while we use the variable as its value. Since the variable was set to true, this 'on'
+ class will be active on this element:
+
+.../app.component.ts - (TypeScript)
+
+import { Component } from '@angular/core';
+@Component({ 
+  selector: 'app-root', 
+  templateUrl: './app.component.html', 
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent { 
+  switch: boolean = true;
+}
+
+app.component.css - (Styling)
+
+.on { background-color: yellow; }
+
+app.component.html - (Template)
+
+<span [ngClass]="{ 'on': switch }">I should be yellow.</span>
+
+Beyond just using the variable switch, we can also make comparisons which result between true and false.
+app.component.html - (Template)
+
+<span [ngClass]="{ 'on': 1===1 }">I should be yellow.</span>
+
+*****************************************************************************************
