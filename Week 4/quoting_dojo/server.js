@@ -29,11 +29,13 @@ var mongoose = require('mongoose');
 // mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static( __dirname + './public/dist/public/index' ));
 
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
 mongoose.connect('mongodb://localhost/basic_mongoose_db');
+
 
 var QuoteSchema = new mongoose.Schema({
     name:  { type: String, required: true, minlength: 6},

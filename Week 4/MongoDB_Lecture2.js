@@ -86,19 +86,19 @@ const Book = mongoose.model('Book', bookSchema);
 // Resource based routing RESTful 
 
 // root route with handler of request and response and response handles the rendering of index.ejs
-app.get('/', function (_request, response) {
-  response.render('index');
+app.get('/', function (_request, _response) {
+  _response.render('index');
 });
 
 // /authors gets all of authors 
-app.get('/authors', function (_request, response) {
+app.get('/authors', function (_request, _response) {
     // searches authors model with no object restriction
   Author.find({})
     // populates (attaches basically) from the books model associated with authors
     .populate('books')
     // once promise goes through render authors directory index.ejs
     // dont use /authors with / with not looking at the root of all of authors...
-    .then(authors => response.render('authors/index', { authors }))
+    .then(authors => _response.render('authors/index', { authors }))
     // if it fails... console log everything but normally would do error handling here...
     .catch(console.log);
 })
