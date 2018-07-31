@@ -100,7 +100,7 @@ const reg = new RegExp('\\.js$', 'i');
 // absolute path to models folder under server folder
 const modelsPath = path.resolve('server', 'models')
 
-// overides promise package and gets rid of Deprecation warning
+// overides promise package and gets rid of Deprecation warning???
 mongoose.Promise = global.Promise
 
 mongoose.connect('mongodb://localhost:authorsandbooks')

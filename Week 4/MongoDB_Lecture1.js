@@ -1,7 +1,7 @@
 //created const variable from mongoose module
 const mongoose = require('mongoose');
 
-// "Destructuring" s the same as saying....
+// "Destructuring" is the same as saying....
 // const Schema = mongoose.Schema
 const { Schema } = mongoose;
 

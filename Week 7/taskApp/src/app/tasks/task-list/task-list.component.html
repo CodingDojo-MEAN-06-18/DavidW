@@ -1,0 +1,35 @@
+<!-- <app-task-new (newTask)='onCreate($event)'></app-task-new> -->
+<h2>Task List:</h2>
+<section>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Completed</th>
+      <th>Actions</th>
+    </thead>
+
+    <tbody>
+      <tr *ngFor='let task of tasks'>
+        <td (click)='onSelect(task)'>{{ task._id }}</td>
+        <td (click)='onSelect(task)'>{{ task.title }}</td>
+        <td (click)='onSelect(task)'>{{ task.description }}</td>
+        <td (click)='onSelect(task)'>{{ task.completed }}</td>
+
+        <!-- need to update this so it doesnt change the route  something like this below....-->
+        <!-- <td> <a [routerLink]="[{{task.id}}]" >Task List</a> </td> -->
+        <td> <a href="/tasks/edit/{{ task._id }}">Edit</a></td> 
+        <td>  <button href="" (click)='turnEditFunctionOn(task._id)'>Edit Task Test</button></td> 
+
+
+        <td> <a (click)='onDelete($event,task)' href="/tasks/destroy/{{ task._id }}">Delete</a></td>
+        <!-- <td> <a href="/tasks/{{ task._id }}">Edit</a></td> -->
+        <!-- working show route above within console -->
+        <!-- <td> <a [routerLink]="[{{task.id}}]" >Task List</a> </td> -->
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<app-task-details [task]='selectedTask'></app-task-details>

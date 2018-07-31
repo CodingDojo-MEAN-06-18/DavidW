@@ -20,6 +20,8 @@ const app = express();
 // turns body-parser on and communicating in JSON
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.static( __dirname + './public/src/index' ));
+// app.use(express.static( __dirname + './public/dist/public/index' ));
 
 // requires all the information 
 require('./server/config/database');

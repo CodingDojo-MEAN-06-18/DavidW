@@ -1,0 +1,12 @@
+<div id="container">
+    <div id="top">
+        <h1>Task Management</h1>
+        <a [routerLink]="['/home']">Home</a> | 
+        <!-- <a [routerLink]="['tasks/edit/:id']">Edit</a> |  -->
+        <a [routerLink]="['tasks']">Task List</a> | 
+        <a [routerLink]="['tasks/new']">Task Creation</a> | 
+    </div>
+    <fieldset id="bottom">
+            <router-outlet></router-outlet>
+    </fieldset>
+</div>

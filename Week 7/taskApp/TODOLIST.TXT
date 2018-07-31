@@ -1,0 +1,12 @@
+Ask about
+pictures/emblems in vs code
+complexity module?
+auto update formatting/spacing?
+extra colors of different var/objects/etc.
+
+
+
+notes....
+
+server side validations required for exam ex book.js in models
+    you can do client side/front end validations but they need to be the same as above

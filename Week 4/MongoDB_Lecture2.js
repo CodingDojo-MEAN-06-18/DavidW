@@ -22,7 +22,7 @@ app.set('views', path.resolve('views'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // connects mongoose with our database that we set ---> authors_books
-// make sure your write ':27017' (deprecation warning if not)
+// make sure your write ':27017' (deprecation warning if not)???
 mongoose.connect('mongodb://localhost:27017/authors_books');
 // logs message once connected
 mongoose.connection.on('connected', () => console.log('MongoDB connected'));
@@ -159,7 +159,7 @@ app.post('/books', function (request, response) {
           return author.save()
         })
         // then redirects back to books once the author and books models have been updated and saved
-        .then(() => response.redirect('/books'));
+        .then( () => response.redirect('/books'));
     })
     // if any of those steps failed this will catch the errors and display them at books directory new.ejs 
     .catch(error => {

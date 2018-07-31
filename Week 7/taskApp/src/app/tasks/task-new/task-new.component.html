@@ -1,0 +1,24 @@
+<section>
+  <fieldset>
+    <legend>Create Task</legend>
+
+    {{ taskForm.value | json }}
+
+    <form (submit)='onSubmit($event, taskForm)' #taskForm='ngForm'>
+      <div>
+        <label for="">title</label>
+        <input type="text" name='title' [(ngModel)]='task.title' required>
+      </div>
+      <div>
+        <label for="">description</label>
+        <input type="text" name='description' [(ngModel)]='task.description'>
+      </div>
+      <div>
+        <label for="">completed</label>
+        <input type="boolean" name='completed' [(ngModel)]='task.completed'>
+      </div>
+
+      <button *ngIf='taskForm.valid'>Submit</button>
+    </form>
+  </fieldset>
+</section>

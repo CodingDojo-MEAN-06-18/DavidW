@@ -1,3 +1,5 @@
+// import { HttpService } from '../../public/src/app/http.service'
+
 //requires mongoose and invokes it
 const mongoose = require('mongoose');
 
@@ -25,6 +27,9 @@ mongoose.Promise = global.Promise;
 // CONNECTION EVENTS - When successfully connected
 mongoose.connection.on('connected', () => {
   console.log(`Mongoose default connection open to ${ database_URI }`);
+  // let x = HttpService
+  // console.log(x);
+  // HttpService.getTasks();
 });
 
 // If the connection throws an error
