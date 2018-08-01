@@ -1,4 +1,9 @@
+// import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+// use this for editTask just like task-details comes in on selected
+
+
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 import { NgForm } from '@angular/forms';
 import { Task } from '../../../models/task';
 import { HttpService } from '../../../http.service';
@@ -11,6 +16,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class TaskEditComponent implements OnInit {
+// @Input() task: Task;
+// use this for editTask just like task-details comes in on selected
+
     tasks = [];
     task: Task = new Task();
     editTask: Array<Task>= [];
@@ -35,15 +43,6 @@ export class TaskEditComponent implements OnInit {
             }
         );
     }
-    // was a working event update but didnt actuallly update....
-
-    // onSubmit(event: Event, form: NgForm, id) {
-    //     event.preventDefault();
-    //     console.log('attempting to edit');
-    //     console.log('submitting ', form);    
-    //     this._httpService.updateTasks(id, form)
-    //     form.reset();
-    //   }
 
     onSubmit(event: Event, form: NgForm, editTask) {
         event.preventDefault();

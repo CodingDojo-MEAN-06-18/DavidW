@@ -4,7 +4,7 @@ export class Task {
     description: string;
     completed: boolean;
 
-    constructor( /* might add http sevice in here or somethin */ ){
-        //this.id = Math.round(Math.random() * 1000)
+    constructor(){
+
     }
 }

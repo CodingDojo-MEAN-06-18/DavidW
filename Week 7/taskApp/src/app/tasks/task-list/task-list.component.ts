@@ -29,7 +29,7 @@ export class TaskListComponent implements OnInit {
     // console.log('deleting....', task._id);
     this._httpService.deleteTasks(task._id);
   }
-  turnEditFunctionOn(test_id){
-    console.log("trying to find the test id.....", test_id)
-  }
+  // turnEditFunctionOn(test_id){
+  //   console.log("trying to find the test id.....", test_id)
+  // }
 }
