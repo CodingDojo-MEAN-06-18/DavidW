@@ -1,0 +1,11 @@
+#top{
+    text-align: right;
+}
+.notes{
+    border: 1px solid black;
+    margin: 5px;
+}
+#wrapper{
+    background-color: white;
+    margin: 25px;
+}

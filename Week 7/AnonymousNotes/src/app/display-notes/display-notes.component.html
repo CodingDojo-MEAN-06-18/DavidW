@@ -1,0 +1,12 @@
+<section id="wrapper">
+  <fieldset>
+    <div class="notes"  *ngFor='let note of notes'>
+      <div id="top">
+        Noted on: {{note.createdAt | date:'medium'}}
+      </div>
+      <div id="bottom">
+        {{note.content}}
+      </div>
+    </div>
+  </fieldset>
+</section>

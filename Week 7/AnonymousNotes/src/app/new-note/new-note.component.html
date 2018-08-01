@@ -1,0 +1,13 @@
+<section id="wrapper">
+    <fieldset>
+      <!-- {{ taskForm.value | json }} -->
+      <form (submit)='onSubmit($event, taskForm)' #taskForm='ngForm'>
+        <div>
+          <label for="">Note:</label>
+          <input type="text" name='conten' [(ngModel)]='note.content' required>
+        </div>
+
+        <button *ngIf='taskForm.valid'>Add Note</button>
+      </form>
+    </fieldset>
+  </section>
