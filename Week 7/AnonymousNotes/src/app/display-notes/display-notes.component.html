@@ -1,8 +1,10 @@
 <section id="wrapper">
   <fieldset>
-    <div class="notes"  *ngFor='let note of notes'>
+    <div class="notes"  *ngFor='let note of notes.reverse()'>
+      <!-- <div class="notes"  *ng-repeat="note of notes | orderBy:'-'"> -->
+
       <div id="top">
-        Noted on: {{note.createdAt | date:'medium'}}
+       <small> Noted on: {{note.createdAt | date:'medium'}}</small>
       </div>
       <div id="bottom">
         {{note.content}}
