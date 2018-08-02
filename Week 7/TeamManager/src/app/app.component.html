@@ -1,0 +1,9 @@
+<div id="container">
+    <div id="top">
+        <a [routerLink]="['players']">Manage Players</a> | 
+        <a [routerLink]="['status/game']">Manage Player Status</a> 
+    </div>
+    <fieldset id="bottom">
+      <router-outlet></router-outlet>
+    </fieldset>
+</div>

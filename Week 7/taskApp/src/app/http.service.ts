@@ -31,6 +31,8 @@ export class HttpService {
     
     addTasks(newTask: any){
         // console.log('********************************************in the addTasks method' )
+
+        //dont subscribe
         this._http.post('/tasks', newTask).subscribe(
             (response) => { 
                 this.getTasks(); 

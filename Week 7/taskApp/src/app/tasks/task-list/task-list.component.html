@@ -16,6 +16,7 @@
         <td (click)='onSelect(task)'>{{ task.description }}</td>
         <td (click)='onSelect(task)'>{{ task.completed }}</td>
         <td> <a href="/tasks/edit/{{ task._id }}">Edit</a></td>
+        <!-- router link -->
         <td> <a (click)='onDelete($event,task)' href="/tasks/destroy/{{ task._id }}">Delete</a></td>
         
         <!-- // use this for editTask just like task-details comes in on selected -->

@@ -1,0 +1,12 @@
+<div id="container">
+    <h1>Player Staus - Game.....</h1> 
+    <!-- have to figure out how to import which game. params? active link then interpolation -->
+      <div id="middle">
+          <a [routerLink]="['1']">Game 1</a> | 
+          <a [routerLink]="['2']">Game 2</a> | 
+          <a [routerLink]="['3']">Game 3</a> 
+      </div>
+      <fieldset id="bottom">
+        <router-outlet></router-outlet>
+      </fieldset>
+  </div>

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Task } from '../../models/task';
 import { HttpService } from '../../http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-new',
@@ -12,7 +13,7 @@ export class TaskNewComponent implements OnInit {
   task: Task = new Task();
 
   @Output() newTask = new EventEmitter<Task>();
-  constructor(private _httpService: HttpService) { }
+  constructor(private _httpService: HttpService, private router: Router) { }
 
   ngOnInit() {}
 
@@ -22,6 +23,11 @@ export class TaskNewComponent implements OnInit {
 
     this.newTask.emit(this.task);
     this._httpService.addTasks(this.task)
+
+    this.router.navigateByUrl('tasks');
+
+
+
     this.task = new Task();
 
     form.reset();
