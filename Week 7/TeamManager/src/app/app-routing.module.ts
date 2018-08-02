@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {
       path: 'players',
-      component: ListComponent,
+      component: ManagePlayersComponent,
       children: [
           {
               path: '',
