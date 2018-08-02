@@ -15,6 +15,8 @@
         <td (click)='onSelect(player)'>{{ player.name }}</td>
         <td (click)='onSelect(player)'>{{ player.position }}</td>
         <td (click)='onSelect(player)'>{{ player.status }}</td>
+
+        
         <!-- router link -->
         <td> <a (click)='onDelete($event,player)' href="/players/destroy/{{ player._id }}">Delete</a></td>        
       </tr>
