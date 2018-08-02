@@ -1,4 +1,4 @@
-const Task = require('mongoose').model('Player');
+const Player = require('mongoose').model('Player');
 const path = require('path');
 
 module.exports = {

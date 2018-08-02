@@ -1,1 +1,23 @@
-<h1>Player List</h1>
+<h2>Player List:</h2>
+<section>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </thead>
+
+    <tbody>
+      <tr *ngFor='let player of players'>
+        <td (click)='onSelect(player)'>{{ player._id }}</td>
+        <td (click)='onSelect(player)'>{{ player.name }}</td>
+        <td (click)='onSelect(player)'>{{ player.position }}</td>
+        <td (click)='onSelect(player)'>{{ player.status }}</td>
+        <!-- router link -->
+        <td> <a (click)='onDelete($event,player)' href="/players/destroy/{{ player._id }}">Delete</a></td>        
+      </tr>
+    </tbody>
+  </table>
+</section>

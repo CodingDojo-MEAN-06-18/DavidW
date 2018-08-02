@@ -1,1 +1,22 @@
-<h1>Add Player</h1>
+<section>
+    <fieldset>
+        <legend>Create Player </legend>
+    
+        <form (submit)='onSubmit($event, playerForm)' #playerForm='ngForm'>
+        <div>
+            <label for="">name</label>
+            <input type="text" name='name' [(ngModel)]='player.name' required>
+        </div>
+        <div>
+            <label for="">position</label>
+            <input type="text" name='position' [(ngModel)]='player.position'>
+        </div>
+        <div>
+            <label for="">status</label>
+            <input type="test" name='status' [(ngModel)]='player.status'>
+        </div>
+    
+        <button *ngIf='playerForm.valid'>Submit</button>
+        </form>
+    </fieldset>
+    </section>
