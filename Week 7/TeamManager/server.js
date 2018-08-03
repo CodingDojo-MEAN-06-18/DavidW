@@ -3,7 +3,7 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 1337;
 const app = express();
 require('./server/config/database');
 

@@ -7,7 +7,7 @@ const playerSchema = new Schema({
   name: {
     type: String,
     required: [true, 'Name is Required'],
-    minlength: [4, 'Player length must be greater than 5'],
+    minlength: [2, 'Player length must be greater than 2'],
     unique: true
   },
   position: {
