@@ -9,7 +9,7 @@ import { Player } from '../../models/player';
 })
 export class Game1Component implements OnInit {
   players: Array<Player>= [];
-  activePlayersforGame: Array<any> = [];
+  // activePlayersforGame: Array<any> = [];
 
   constructor(private _httpService: HttpService) { }
 
@@ -22,17 +22,17 @@ export class Game1Component implements OnInit {
     // );
   }
 
-  // ADDS PLAYER TO THE GAME IN SERVICE AND GIVES THE CURRENT GAME NUMBER
-  activatePlayer(player){
-    this._httpService.addToGame(player, 1);
-    this.activePlayersforGame = this._httpService.activePlayersGame1;
-  }
+  // ADDS PLAYER TO THE GAME IN SERVICE AND GIVES THE CURRENT GAME NUMBER 
+  // activatePlayer(player){
+  //   this._httpService.addToGame(player, 1);
+  //   this.activePlayersforGame = this._httpService.activePlayersGame1;
+  // }
   
   // THIS IS WHERE WE WILL EVENTUALLY CHANGE THE STATUS OF THE PLAYER
   changeStatus(player, num) {
     player.status[0] = num
     this._httpService.updatePlayer(player)
-    this.activePlayersforGame = this._httpService.activePlayersGame1;
+    // this.activePlayersforGame = this._httpService.activePlayersGame1;
     // getActivePlayers(Game1);
   }
   // onDelete(event, player) {

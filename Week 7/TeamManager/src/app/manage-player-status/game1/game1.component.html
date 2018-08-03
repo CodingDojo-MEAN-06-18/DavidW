@@ -5,10 +5,7 @@
     <th>Actions</th>
   </tr>
   <tr *ngFor='let player of players'>
-  <!-- <tr *ngFor="let player of activePlayersforGame"> -->
     <td>{{player.name}}</td>
-    <td>{{player.status}}</td>
-    <td>{{player.status[0]}}</td>
     <td> 
         <button (click)="changeStatus(player, 0)" [ngStyle]="{'background-color':player.status[0] == 0 ? 'green' : 'none' }">Playing</button>
         <button (click)="changeStatus(player, 1)" [ngStyle]="{'background-color':player.status[0] == 1 ? 'red' : 'none' }">Not Playing</button>
@@ -17,8 +14,7 @@
   </tr>
 </table>
 
-
-<h2>Players Available:</h2>
+<!-- <h2>Players Available:</h2>
 <section>
   <table>
     <thead>
@@ -37,4 +33,4 @@
       </tr>
     </tbody>
   </table>
-</section>
+</section> -->
