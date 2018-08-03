@@ -11,14 +11,16 @@ import { Router } from '@angular/router'
 export class ManagePlayerStatusComponent implements OnInit {
   public href: string = "";
   gamenum: number = 1;
-  constructor(private activeRoute: ActivatedRoute, private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-    // console.log(this.gamenum)
-    this.href = this.router.url;
-    // console.log('url', this.router.url);
-    this.gamenum = +(this.router.url[13])
-    // console.log(this.gamenum)
-    }
-
+  }
+  
+  getNum(num){
+    this.gamenum = num;
+  }
+  
+  dataFromChild(eventData){
+    console.log(eventData);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpService } from '../../http.service';
 import { Player } from '../../models/player';
 import { Router } from '@angular/router'
@@ -13,6 +13,8 @@ export class Game3Component implements OnInit {
   public href: string = "";
   gamenum = 3;
 
+  @Output() aTaskEventEmitter = new EventEmitter();
+
   constructor(private _httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
@@ -21,7 +23,14 @@ export class Game3Component implements OnInit {
     );
       this.href = this.router.url;
       this.gamenum = +(this.router.url[13])
+      this.triggerEvent();
   }
+
+  triggerEvent(){
+    //  3 Emit the Event
+    this.aTaskEventEmitter.emit(this.gamenum); //we can pass in any data type
+  }
+
 
   changeStatus(player, num) {
     player.status[2] = num

@@ -1,10 +1,11 @@
 <div id="container">
+    <h2 (aTaskEventEmitter)="dataFromChild($event)"> </h2>
     <h1>Player Status - Game {{gamenum}}</h1> 
     <!-- have to figure out how to import which game. params? active link then interpolation -->
     <div id="middle">
-        <a [routerLink]="['1']">Game 1</a> | 
-        <a [routerLink]="['2']">Game 2</a> | 
-        <a [routerLink]="['3']">Game 3</a> 
+        <a (click)="getNum(1)" [routerLink]="['1']">Game 1</a> | 
+        <a (click)="getNum(2)" [routerLink]="['2']">Game 2</a> | 
+        <a (click)="getNum(3)" [routerLink]="['3']">Game 3</a> 
     </div>
     <fieldset id="bottom">
         <router-outlet></router-outlet>
