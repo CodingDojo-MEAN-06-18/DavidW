@@ -6,7 +6,7 @@ const reg        = new RegExp('\\.js$', 'i');
 // const modelsPath = path.join(__dirname, '../models');
 const modelsPath = path.resolve('server', 'models'); 
 
-mongoose.connect('mongodb://localhost:27017/players', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/TeamManager', { useNewUrlParser: true });
 
 mongoose.connection.on('connected', () => console.log('connected to MongoDB'));
 

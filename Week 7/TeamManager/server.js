@@ -13,6 +13,7 @@ app.use(logger('dev'))
   .use(express.static(path.join(__dirname, 'dist/TeamManager' )))
   .use('/api', require('./server/routes'))
   .use('/players', require('./server/routes/player.routes'))
+  .use('/games', require('./server/routes/game.routes'))
   .use(require('./server/routes/catch-all.routes'));
 
   

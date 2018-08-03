@@ -21,7 +21,6 @@ export class ListComponent implements OnInit {
     }
     onDelete(event, player) {
       event.preventDefault();
-      // console.log('deleting....', player._id);
       this._httpService.deletePlayer(player._id);
     }
   }

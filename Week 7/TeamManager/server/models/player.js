@@ -15,12 +15,11 @@ const playerSchema = new Schema({
     trim: true,
     default: ''
   },
-  status: {
-    type: String,
-    required: true,
-    default: 'undecided'
+  status: { 
+    type: [Number], 
+    default: [0, 0, 0] },
   },
-}, {
+{
   timestamps: true
 });
 

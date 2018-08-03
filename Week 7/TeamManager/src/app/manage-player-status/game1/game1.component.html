@@ -1,1 +1,40 @@
-<h1>Game 1</h1>
+<h1> Player Status - Game {{gamenum}}</h1>
+<table>
+  <tr>
+    <th>Player Name</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor='let player of players'>
+  <!-- <tr *ngFor="let player of activePlayersforGame"> -->
+    <td>{{player.name}}</td>
+    <td>{{player.status}}</td>
+    <td>{{player.status[0]}}</td>
+    <td> 
+        <button (click)="changeStatus(player, 0)" [ngStyle]="{'background-color':player.status[0] == 0 ? 'green' : 'none' }">Playing</button>
+        <button (click)="changeStatus(player, 1)" [ngStyle]="{'background-color':player.status[0] == 1 ? 'red' : 'none' }">Not Playing</button>
+        <button (click)="changeStatus(player, 2)"  [ngStyle]="{'background-color':player.status[0] == 2 ? 'yellow' : 'none' }">Undecided</button> 
+    </td>
+  </tr>
+</table>
+
+
+<h2>Players Available:</h2>
+<section>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Actions</th>
+    </thead>
+
+    <tbody>
+      <tr *ngFor='let player of players'>
+        <td>{{ player._id }}</td>
+        <td>{{ player.name }}</td>
+        <td>{{ player.position }}</td>
+        <td> <button (click)='activatePlayer(player)'>Add Player</button></td>        
+      </tr>
+    </tbody>
+  </table>
+</section>
