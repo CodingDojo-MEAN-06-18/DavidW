@@ -18,4 +18,10 @@ export class Game3Component implements OnInit {
       (players) => { this.players = players; }
     );
   }
+  changeStatus(player, num) {
+    player.status[2] = num
+    this._httpService.updatePlayer(player)
+    // this.activePlayersforGame = this._httpService.activePlayersGame1;
+    // getActivePlayers(Game1);
+  }
 }
