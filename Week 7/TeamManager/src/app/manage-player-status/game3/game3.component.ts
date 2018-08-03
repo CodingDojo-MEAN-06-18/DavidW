@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../../http.service';
+import { Player } from '../../models/player';
 
 @Component({
   selector: 'app-game3',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game3.component.css']
 })
 export class Game3Component implements OnInit {
+  players: Array<Player>= [];
+  gamenum = 3;
 
-  constructor() { }
+  constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
+    this._httpService.players.subscribe(
+      (players) => { this.players = players; }
+    );
   }
-
 }
