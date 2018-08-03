@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../http.service';
 import { Player } from '../../models/player';
+import { Router } from '@angular/router'
+
 
 @Component({
   selector: 'app-game1',
@@ -9,15 +11,22 @@ import { Player } from '../../models/player';
 })
 export class Game1Component implements OnInit {
   players: Array<Player>= [];
+  public href: string = "";
+
   gamenum = 1;
   // activePlayersforGame: Array<any> = [];
 
-  constructor(private _httpService: HttpService) { }
-
+  constructor(private _httpService: HttpService, private router: Router) { }
+  
   ngOnInit() {
     this._httpService.players.subscribe(
       (players) => { this.players = players; }
     );
+      // console.log(this.gamenum)
+      this.href = this.router.url;
+      // console.log('url', this.router.url);
+      this.gamenum = +(this.router.url[13])
+      // console.log(this.gamenum)
   }
     // this._httpService.activePlayersGame1.subscribe(
     //   (activePlayers) => { this.activePlayersGame1 = activePlayers; }
