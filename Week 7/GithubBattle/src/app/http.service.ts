@@ -42,6 +42,8 @@ export class HttpService {
         .catch(error => {
             console.log(error, "error adding user")
         })
+        // update players
+        this.getPlayers();
     }
 
     // updates the battle stats for the results component to retrieve
