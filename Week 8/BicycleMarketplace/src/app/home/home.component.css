@@ -1,0 +1,11 @@
+#randomBikeContent{
+    border: 2px solid black;
+}
+#login{
+    display: inline-block;
+    border: 2px solid black;
+}
+#registration{
+    display: inline-block;
+    border: 2px solid black;    
+}

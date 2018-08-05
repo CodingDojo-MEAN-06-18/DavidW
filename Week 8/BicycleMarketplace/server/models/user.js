@@ -24,6 +24,11 @@ const userSchema = new Schema ({
         required: [true, "Password is required"],
         minlength: 8
     },
+    confirmPassword: {
+        type: String, 
+        required: [true, "Confirm Password is required"],
+        minlength: 8
+    },
     bikes: {
         type: Object,
     }

@@ -5,26 +5,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { routing } from './/app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { BrowseComponent } from './browse/browse.component';
 import { ListingsComponent } from './listings/listings.component';
 import { HttpService } from './http.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     BrowseComponent,
     ListingsComponent,
-    DashboardComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     routing
-    
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
