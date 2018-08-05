@@ -34,9 +34,9 @@ yarn-error.log
 testem.log
 /typings
 .notes.txt
-.ThingsToDo.txt
 notes.txt
-ThingsToDo
+.ThingsToDo.txt
+ThingsToDo.txt
 
 # System Files
 .DS_Store
