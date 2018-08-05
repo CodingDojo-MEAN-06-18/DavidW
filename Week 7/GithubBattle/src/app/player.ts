@@ -1,3 +1,4 @@
+// player class model
 export class Player {
     _id?: number; 
     name: string;
@@ -5,6 +6,5 @@ export class Player {
     pic: string
 
     constructor(){
-        
     }
 }
