@@ -6,22 +6,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BattleComponent } from './battle/battle.component';
 import { RankingsComponent } from './rankings/rankings.component';
-import { HomeComponent } from './home/home.component';
-import { PlayerComponent } from './player/player.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { routing } from './/app-routing.module';
 import { HttpService } from './http.service';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BattleComponent,
     RankingsComponent,
-    HomeComponent,
-    PlayerComponent
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    routing,
     FormsModule,
     HttpClientModule
   ],

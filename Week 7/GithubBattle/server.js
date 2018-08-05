@@ -12,6 +12,6 @@ app.use(logger('dev'))
   .use(parser.urlencoded({ extended: true }))
   .use(express.static(path.join(__dirname, 'dist/GithubBattle' )))
   .use('/api', require('./server/routes'))
-  .use('/player', require('./server/routes/player.routes'))
+  .use('/players', require('./server/routes/player.routes')) // connects the base /players route from the path given
   .use(require('./server/routes/catch-all.routes'))
   .listen(port, () => console.log(`Express listening on port ${ port }`));

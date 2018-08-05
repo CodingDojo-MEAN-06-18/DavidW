@@ -2,7 +2,7 @@ const router = require('express').Router();
 const path = require('path');
 
 router.all('*', function(request, response) {
-    response.sendFile(path.resolve('dist/AnonymousNotes/index.html')) //angular 6 will have  the project name otherwise dist/index.html
+    response.sendFile(path.resolve('dist/GithubBattle/index.html')) //angular 6 will have  the project name otherwise dist/index.html
     // response.sendFile(path.join(__dirname, '../../dist/index.html'))
 })  //matches every kind of request
 // ex. get, put, post, delete 

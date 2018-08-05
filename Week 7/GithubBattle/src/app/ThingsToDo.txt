@@ -1,0 +1,62 @@
+1. Flash errors
+  ->>>> also how do i flash a confirmation delete and store that information 
+
+2. Rankings.component.html
+    how do i sort by score. pipe?
+
+3. 
+
+
+
+
+
+
+
+
+
+
+Layout......
+
+Battle ('/')
+    Home
+        <player [pass in information for player 1]></player>
+            Player 1(form) ---> if form is valid pass information to child
+                .then ->>>> player 1 results (maybe child component)
+                .catch ->>>> display error
+
+        <player [pass in information for player 2]></player>
+            Player 2(form) ---> if form is valid pass infromation to child
+                .then ->>>> player 1 results (maybe child component)
+                .catch ->>>> display error
+
+        <button id="battle" *ngIf="battleTimevalid> 
+        turn on once both are valid (two different booleans to turn on)
+
+
+Rankings ('/rankings')
+    Should have its own storage model of players once they battle 
+    just take each user and it to the rankings model array
+
+    loop through stored player/users and order by score 
+    scroll bar?
+
+Results   ('/results')
+    redirected from battle after they clicked battle
+    Display the winners picture on div on left (inline)
+    display the scores and name in a div on the left (inline)
+
+
+Hints
+    service
+    Http
+    .map
+    .toPromise
+    import 'rxjs'
+    import { Http } from "@angular/http"
+    [(ngModel)]
+    required
+    {{interpolation variable}}
+    *ngIf
+    (submit)=""
+    #form="ngForm"
+    [disabled]=""
