@@ -35,6 +35,8 @@ testem.log
 /typings
 .ThingsToDo.txt
 .ThingsToDo
+ThingsToDo.txt
+ThingsToDo
 
 # System Files
 .DS_Store
