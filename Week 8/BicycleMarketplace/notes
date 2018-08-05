@@ -4,7 +4,7 @@ modules installed
     morgan
     express-session
     mongoose
-
+    mongoose-unique-validator
 
 Layout
     Server

@@ -1,0 +1,9 @@
+modes/user.js
+    fix email from weekend lecture that we can import the validtor built in  email
+
+routing
+    watch the weekend route guards and try to implement it
+
+can i combine and next my models into one?
+
+do types need to be uppercase or lowercase? reference models....
