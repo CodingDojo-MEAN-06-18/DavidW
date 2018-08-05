@@ -7,16 +7,17 @@ import { HttpService } from '../http.service';
   styleUrls: ['./rankings.component.css']
 })
 export class RankingsComponent implements OnInit {
-    players
+    players: object;
 
-  constructor(private http: HttpService) { }
+    constructor(private http: HttpService) { }
 
-  ngOnInit() {
-    this.http.players.subscribe(
-        (players) => { this.players = players; 
-        console.log(this.players);
-        }
-    );
-}
-
+    // loads the current players set up in our database on init
+    ngOnInit() {
+        this.http.players.subscribe(
+            (players) => { 
+                this.players = players; 
+                // console.log(this.players);
+            }
+        );
+    }
 }

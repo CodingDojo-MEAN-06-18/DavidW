@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 // import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { Player } from '../player';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-battle',
@@ -13,30 +14,32 @@ import { Player } from '../player';
 
 export class BattleComponent implements OnInit {
     player: Player = new Player();
-    players
+    players  
+    //  not sure what type this should be ^^^^^^
 
-    formOneOFF = false;
-    user1NotFound = false;
-    user1Name = '';
-    user1Score = 0;
-    user1Pic = '';
-    user1Exist = false;
+    formOneOFF: boolean = false;
+    user1NotFound: boolean = false;
+    user1Name: string = '';
+    user1Score: number = 0;
+    user1Pic: string = '';
+    user1Exist: boolean = false;
     
-    formTwoOFF = false;
-    user2NotFound = false;
-    user2Name = '';
-    user2Score = 0;
-    user2Pic = '';
-    user2Exist = false;
+    formTwoOFF: boolean = false;
+    user2NotFound: boolean = false;
+    user2Name: string = '';
+    user2Score: number = 0;
+    user2Pic: string = '';
+    user2Exist: boolean = false;
 
-    winner: Object = {};
-    loser: Object = {};
+    winner: object = {};
+    loser: object = {};
 
     constructor(private httpService: HttpService, private router: Router) { }
     
     ngOnInit() {
     }
     
+    // retrieves information for user1 using the service
     onSubmit1(event: Event, form: NgForm){
         event.preventDefault();
 
@@ -65,6 +68,7 @@ export class BattleComponent implements OnInit {
         )
     }
 
+    // retrieves information for user1 using the service
     onSubmit2(event: Event, form: NgForm){
         event.preventDefault();
 
@@ -92,8 +96,9 @@ export class BattleComponent implements OnInit {
         )
     }
 
+    // function triggered from battle button 
     battleTime(){
-        // added for checking current users
+        // this section checks for current users and if there is switches the booleans
         this.httpService.players.subscribe(
             (players) => { this.players = players; 
             }
@@ -109,6 +114,8 @@ export class BattleComponent implements OnInit {
                 this.user2Exist = true;
             }
         }
+
+        // this section will add the users that didnt exist from the check above
         if (this.user1Exist === false) {
             this.player.score = this.user1Score;
             this.player.pic = this.user1Pic;
@@ -127,9 +134,7 @@ export class BattleComponent implements OnInit {
         this.user1Exist = false;
         this.user2Exist = false;
 
-
-
-
+        // this section will find who won and store the winner and loser and then send it to the service  and navigate to results 
         if (this.user1Score > this.user2Score) {
             this.winner = {
                 winnerName: this.user1Name,
