@@ -1,3 +1,4 @@
+// imported modules and routes for completing our paths and loading defined components
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -21,5 +22,4 @@ const routes: Routes = [
         component: RankingsComponent
     }
 ]
-      
 export const routing = RouterModule.forRoot(routes);
