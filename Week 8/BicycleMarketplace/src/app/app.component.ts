@@ -1,13 +1,9 @@
-// everything commented out is hopefullly how we will get the switch button to work
-// and subscribe or observe anytime the user is logged in our out so when they first 
-// log in the routes pop up above the router and if they log out at anytime they go away and 
-// the only thing displyed is back at the home page. probaly do a switch and an if statemnt if the user is
-// logged in or not
-// import { Component, OnChanges } from '@angular/core';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { User} from './user';
 import { NgForm } from '@angular/forms';
-import { HttpService } from './http.service';
+import { Router } from '@angular/router';
+import { UserService } from './services';
 
 @Component({
     selector: 'app-root',
@@ -15,30 +11,23 @@ import { HttpService } from './http.service';
     styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
     title = 'Bicycle Marketplace';
-    loginSwitch = false; 
-    
-    constructor(private http: HttpService){}
+    navSwitch = new BehaviorSubject(false); 
 
-    //   if the user is not logged in redirect home, destroy cookies, empty sesssion etc
-    // that code should be here as well
+    constructor(private router: Router, private userService: UserService){}
 
-    //   ngOnChanges(){
-    //     this.http.loginSwitch.subscribe(
-    //         (loginSwitch) => {
-    //         this.loginSwitch = loginSwitch; 
-    //     })
-    //   }
-
-    switchButton(){
-        console.log("switching and the switch is currently:" , this.loginSwitch)
-        this.http.switchingLogin(this.loginSwitch);
-        this.http.loginSwitch.subscribe(
-            (loginSwitch) => {
-                this.loginSwitch = loginSwitch; 
+    ngOnInit(){
+        this.userService.serviceSwitch.subscribe(
+            (serviceSwitch) => {
+                // console.log('what is the service switch ', serviceSwitch)
+            this.navSwitch.next(serviceSwitch); 
         })
-        console.log("done switching and the switch is now:" , this.loginSwitch)
+      }
+
+    logOut(){
+        console.log("logging out")
+        this.router.navigate(['/'])
     }
 }
 

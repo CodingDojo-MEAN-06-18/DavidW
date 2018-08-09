@@ -1,8 +1,25 @@
-<div id="top">
-        <a [routerLink]="['']">Browse</a> | 
-        <a [routerLink]="['listings']">My listings</a> |
-        <a [routerLink]="['home']">Log off</a>
+<div class="container">
+    <div class="search">
+        <form action="">
+            <label for="">Search: <input></label>
+            <input [ngStyle]="{'background-color': 'blue', 'width': '75px', 'height': '25px', 'display': 'inline-block'}"  type="submit" value="Search">
+        </form>
     </div>
-    <!-- <div id="bottom">
-        <router-outlet ></router-outlet>
-    </div> -->
+    <div class="scroll">
+        <div class="bikes" *ngFor="let bike of bikes">
+            <div class="image">
+                <img src="{{bike.imageURL}}" alt="users bike">
+            </div>
+            <div class="middle">
+                <h1>{{bike.title}}</h1>
+                <p>Description: {{bike.description}}</p>
+            </div>
+            <div class="right">
+                <h2>${{bike.price}}</h2>
+                <h5>Location: {{bike.location}}</h5>
+                <input *ngIf="currentUserInfo._id !== bike.userID" (click)="delete(bike._id)" [ngStyle]="{'color': 'white', 'background-color': 'red', 'width': '75px', 'height': '50px'}"  type="submit" value="Delete">
+                <input *ngIf="currentUserInfo._id === bike.userID" (click)="contact(bike._id)" [ngStyle]="{'color': 'white', 'background-color': 'yellow', 'width': '75px', 'height': '50px'}"  type="submit" value="Contact">
+            </div>
+        </div>
+    </div>
+</div>

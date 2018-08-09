@@ -25,6 +25,10 @@ const bikeSchema = new Schema ({
     },
     imageURL: {
         type: String
+    },
+    userID: {
+        type: String,
+        required: true
     }
    }, {timestamps: true })
 

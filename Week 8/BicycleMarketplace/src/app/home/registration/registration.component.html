@@ -1,0 +1,76 @@
+<form #formData='ngForm' (submit)="onSubmit(formData.value)">
+    <label for="">*First Name:
+    <input 
+    type="text" 
+    name="firstName" 
+    required 
+    minlength="3" 
+    maxlength="20"
+    [(ngModel)]="user.firstName"
+    #firstName='ngModel'
+    placeholder="First Name"
+    /></label><br>
+
+    <label *ngIf="firstName.touched && firstName.errors"><small>{{ firstName.errors | json }}</small><br></label>
+    
+    <label for="">*Last Name: 
+    <input 
+    type="text" 
+    name="lastName" 
+    required 
+    minlength="3" 
+    maxlength="24"
+    [(ngModel)]="user.lastName"
+    #lastName='ngModel'
+    placeholder="Last Name"
+    /></label><br>
+
+    <label *ngIf="lastName.touched && lastName.errors"><small>{{ lastName.errors | json }}</small><br></label>
+
+    <label for="">*Email: 
+    <input 
+    type="text" 
+    name="email" 
+    required 
+    minlength="4" 
+    maxlength="24"
+    [(ngModel)]="user.email"
+    #email='ngModel'
+    placeholder="Email"
+    /></label><br>
+
+    <label *ngIf="email.touched && email.errors"><small>{{ email.errors | json }}</small><br></label>
+    
+    <label for="">*Password: 
+    <input 
+    type="text" 
+    name="password" 
+    required 
+    minlength="8" 
+    maxlength="24"
+    pattern="^([a-zA-Z0-9@*#]{8,15})$"
+    [(ngModel)]="user.password"
+    #password='ngModel'
+    placeholder="Password"
+    /></label><br>
+
+    <label *ngIf="password.touched && password.errors"><small>{{ password.errors | json }}</small><br></label>
+
+    <label for="">*Confirm Password: 
+    <input 
+    type="text" 
+    name="confirmPassword" 
+    required 
+    minlength="8" 
+    maxlength="24"
+    pattern="^([a-zA-Z0-9@*#]{8,15})$"
+    [(ngModel)]="user.confirmPassword"
+    #confirmPassword='ngModel'
+    placeholder="Confirm Password"
+    /></label><br>
+
+    <label *ngIf="confirmPassword.touched && confirmPassword.errors"><small>{{ confirmPassword.errors | json }}</small><br></label>
+    <label *ngIf="confirmPassword.valid && confirmPassword.value !== password.value"><small>Your password does not match!!</small><br></label>
+    
+    <input [ngStyle]="{'color': 'white', 'background-color': 'blue', 'width': '250px'}" [disabled]="formData.invalid" type="submit" value="Register">
+</form>

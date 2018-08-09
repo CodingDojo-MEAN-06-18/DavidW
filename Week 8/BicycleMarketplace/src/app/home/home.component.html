@@ -1,106 +1,16 @@
 <div id="wrapper">
     <div id="top">
+        <h2 [ngStyle]="{'color': 'blue'}">Bike of the day!</h2>
         <div id="randomBike">
-            <h2 [ngStyle]="{'color': 'blue'}">Bike of the day!</h2>
-            <div id="randomBikeContent">
-                <h3>this will display the content and the picture</h3>
-            </div>
+            <app-random-bike></app-random-bike>
         </div>
     </div>
-    <div id="login">
-        <form action="">
-            <label for="">*Email<input type="text"></label><br>
-            <label for="">*Password<input type="text"></label><br>
-            <input [ngStyle]="{'color': 'white', 'background-color': 'green'}" type="submit" value="Login">
-        </form>
-
+    <div id="bottom">
+        <div id="login">
+            <app-login></app-login>
+        </div>
+        <div id="registration">
+            <app-registration></app-registration>
+        </div>
     </div>
-    <!-- <div class="success" *ngIf="formData.submitted && users">
-    <p>Thank you for registering with us {{ users[users.length - 1].firstName }}! We just sent you a confirmation email at: <a href="someLinkLocationSomewhere">({{ users[users.length - 1].email }})</a>, and we will send all mail to {{ users[users.length - 1].streetAddress }} {{ users[users.length - 1].apt}}, {{ users[users.length - 1].city }}, {{ users[users.length - 1].state }}.</p>
-    <p>Have a wonderful day!</p>
-    </div> -->
-
-    <div id="registration">
-        <h3>Registration</h3>
-        <form #formData='ngForm' (submit)="onSubmit($event, formData)">
-            <p>*First Name: </p>
-            <input 
-            type="text" 
-            name="firstName" 
-            required 
-            minlength="4" 
-            maxlength="24"
-            [(ngModel)]="user.firstName"
-            #firstName='ngModel'
-            placeholder="First Name"
-            />
-            <span *ngIf="firstName.touched && firstName.errors">{{ firstName.errors | json }}</span>
-            <br>
-            
-            <p>*Last Name: </p>
-            <input 
-            type="text" 
-            name="lastName" 
-            required 
-            minlength="4" 
-            maxlength="24"
-            [(ngModel)]="user.lastName"
-            #lastName='ngModel'
-            placeholder="Last Name"
-            />
-            <span *ngIf="lastName.touched && lastName.errors">{{ lastName.errors | json }}</span>
-            <br>
-
-            <p>*Email: </p>
-            <input 
-            type="text" 
-            name="email" 
-            required 
-            minlength="4" 
-            maxlength="24"
-            [(ngModel)]="user.email"
-            #email='ngModel'
-            placeholder="Email"
-            />
-            <span *ngIf="email.touched && email.errors">{{ email.errors | json }}</span>
-            <br>
-            
-            <p>*Password: </p>
-            <input 
-            type="text" 
-            name="password" 
-            required 
-            minlength="10" 
-            maxlength="24"
-            pattern="^([a-zA-Z0-9@*#]{8,15})$"
-            [(ngModel)]="user.password"
-            #password='ngModel'
-            placeholder="Password"
-            />
-
-            <span *ngIf="password.touched && password.errors">{{ password.errors | json }}</span>
-            <br>
-            
-            <p>*Confirm Password: </p>
-            <input 
-            type="text" 
-            name="confirmPassword" 
-            required 
-            minlength="10" 
-            maxlength="24"
-            pattern="^([a-zA-Z0-9@*#]{8,15})$"
-            [(ngModel)]="user.confirmPassword"
-            #confirmPassword='ngModel'
-            placeholder="Confirm Password"
-            />
-
-            <span *ngIf="confirmPassword.touched && confirmPassword.errors">{{ confirmPassword.errors | json }}</span>
-            <span *ngIf="confirmPassword.valid && confirmPassword.value !== password.value">Your password does not match!!</span>
-            <br>
-            
-            <input [ngStyle]="{'color': 'white', 'background-color': 'blue'}" [disabled]="formData.invalid" type="submit" value="Register">
-            <!-- <input type='submit' *ngIf="password.valid && email.valid && first_name.valid && last_name.valid"(click)="submitUser()">
-            <input type='submit' *ngIf="!password.valid || !email.valid || !first_name.valid || !last_name.valid" (click)="event.preventDefault(); alert('you clicked inside the header');"> -->
-        </form>
-    </div>
-</div> <!-- end wrapper -->
+</div>

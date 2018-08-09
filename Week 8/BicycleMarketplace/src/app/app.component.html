@@ -1,10 +1,9 @@
-<h1> Bicycle Marketplace </h1> 
-<button (click)="switchButton()">Switch</button>
-<div *ngIf="loginSwitch === true" id="top">
-    <a [routerLink]="['']">Browse</a> | 
-    <a [routerLink]="['listings']">My listings</a> |
-    <a [routerLink]="['home']">Log off</a>
+<h1> Bicycle Marketplace </h1>
+<div *ngIf="navSwitch.value === true" id="top">
+    <app-nav-bar></app-nav-bar>
 </div>
 <div id="bottom">
-        <router-outlet ></router-outlet>
+    <router-outlet></router-outlet>
 </div>
+
+

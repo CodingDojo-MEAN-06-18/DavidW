@@ -1,11 +1,18 @@
-#randomBikeContent{
+#randomBike{
     border: 2px solid black;
+    width: 500px;
+    align-content: center;
+    text-align: center;
 }
-#login{
+#login, #registration{
     display: inline-block;
     border: 2px solid black;
+    margin: 25px;
+    width: auto;
+    height: auto;
+    vertical-align: top;
+    text-align: right;
 }
-#registration{
-    display: inline-block;
-    border: 2px solid black;    
+#top{
+    margin-left: 50px;
 }

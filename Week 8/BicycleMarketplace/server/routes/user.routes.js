@@ -2,5 +2,7 @@ const { userController } = require('../controllers');
 const router = require('express').Router();
 
 module.exports = router
-    .get('/', userController.index)  //actually --> ('/users')
-    .post('/', userController.create) //actually --> ('/users')
+    .get('/info/:user_id', userController.index)  //actually --> ('/users/info/xxxx')
+    .post('/login', userController.login) //actually --> ('/users/login')
+    .post('/register', userController.register) //actually --> ('/users/register')
+    .delete('/logout', userController.logout); //actually --> ('/users/logout')

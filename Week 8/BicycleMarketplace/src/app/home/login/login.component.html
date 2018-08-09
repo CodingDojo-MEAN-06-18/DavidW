@@ -1,0 +1,32 @@
+<form #formData='ngForm' (submit)="onSubmit(formData.value)">
+    <label for="">*Email: 
+    <input 
+    type="text" 
+    name="email" 
+    required 
+    minlength="4" 
+    maxlength="24"
+    [(ngModel)]="user.email"
+    #email='ngModel'
+    placeholder="Email"
+    /></label><br>
+    
+    <label *ngIf="email.touched && email.errors"><small>{{ email.errors | json }}</small><br></label>
+                
+    <label for="">*Password: 
+    <input 
+    type="text" 
+    name="password" 
+    required 
+    minlength="8" 
+    maxlength="24"
+    pattern="^([a-zA-Z0-9@*#]{8,15})$"
+    [(ngModel)]="user.password"
+    #password='ngModel'
+    placeholder="Password"
+    /></label><br>
+
+    <label *ngIf="password.touched && password.errors"><small>{{ password.errors | json }}</small><br></label>
+        
+    <input [disabled]="formData.invalid" [ngStyle]="{'color': 'white', 'background-color': 'green', 'width': '200px'}" type="submit" value="Login">
+</form>

@@ -1,0 +1,51 @@
+img{
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+}
+h1, p{
+    margin: 0px;
+}
+.description{
+    width: 50px;
+    height: 100px;
+}
+.scroll{
+    margin: 5px;
+    background-color: white;
+    border: 2px solid black;
+    align-content: center;
+    align-items: center;
+    width: 625px;
+}
+.container{
+    background-color: grey;
+    width: 640px;
+    padding: 15px;
+}
+.search{
+    text-align: center;
+}
+.search label{
+    display: inline-block;
+    margin: 0px;
+}
+.search input{
+    width: 400px;
+    margin-left: 15px; 
+    margin-right: 15px; 
+}
+.bikes{
+    border: 2px solid black;
+    margin: 5px;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 575px;
+    background-color: grey;
+}
+.image, .middle, .right{
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+}

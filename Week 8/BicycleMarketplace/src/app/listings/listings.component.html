@@ -1,3 +1,175 @@
-<p>
-  listings works!
-</p>
+<div id="wrapper">
+    <div class="top">
+        <h1>Create Listing</h1>
+        <div id="createContent">
+            <form #bikeData='ngForm' (submit)="onSubmit(bikeData.value)">
+                <div class="topImage">
+                    <label for="">Image Url: 
+                        <input 
+                        type="text" 
+                        name="imageURL" 
+                        required 
+                        minlength="3" 
+                        [(ngModel)]="bike.imageURL"
+                        #imageURL='ngModel'
+                        placeholder="ImageURL"
+                        /></label><br>
+                </div>
+                <div class="topMiddle">
+                    <label for="">Title: 
+                        <input 
+                        type="text" 
+                        name="title" 
+                        required 
+                        minlength="3" 
+                        maxlength="24"
+                        [(ngModel)]="bike.title"
+                        #title='ngModel'
+                        placeholder="Title"
+                        /></label><br>
+
+                    <label for="">Description: 
+                        <input 
+                        class="description"
+                        type="text" 
+                        name="description" 
+                        required 
+                        minlength="3" 
+                        maxlength="200"
+                        [(ngModel)]="bike.description"
+                        #description='ngModel'
+                        placeholder="Description"
+                        /></label><br>
+                </div>
+                <div class="topRight">
+                    <label for="">Price: 
+                        <input 
+                        type="number" 
+                        name="price" 
+                        required 
+                        min="1" 
+                        [(ngModel)]="bike.price"
+                        #price='ngModel'
+                        placeholder="Price"
+                        /></label><br>
+                        
+                    <label for="">Location: 
+                        <input 
+                        type="text" 
+                        name="location" 
+                        required 
+                        minlength="3" 
+                        maxlength="24"
+                        [(ngModel)]="bike.location"
+                        #location='ngModel'
+                        placeholder="Location"
+                        /></label><br>
+                    
+                    <div *ngIf="currentUserInfo" ng-hide="true">
+                    <label for="">UserID: 
+                        <input 
+                        type="text" 
+                        name="userID"
+                        value="{{currentUserInfo._id}}"
+                        required 
+                        minlength="3" 
+                        maxlength="24"
+                        [(ngModel)]="bike.userID"
+                        #userID='ngModel'
+                        placeholder="{{currentUserInfo._id}}"
+                        /></label><br>
+                    </div>
+
+                <input [ngStyle]="{'color': 'white', 'background-color': 'green', 'width': '75px', 'height': '50px'}" [disabled]="bikeData.invalid" type="submit" value="Create">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="bottom">
+        <h1>Edit/Delete Listings</h1>
+        <div class="bikes" *ngFor="let bike of bikes">
+            <form #bikeUpdate='ngForm' (submit)="onUpdate(bike._id, bikeUpdate.value)">
+                <div class="image">
+                    <img src="{{bike.imageURL}}" alt="">
+                    <label for="">Image Url: 
+                        <input 
+                        type="text" 
+                        name="imageURL" 
+                        required 
+                        minlength="3" 
+                        [(ngModel)]="bike.imageURL"
+                        #imageURL='ngModel'
+                        placeholder="{{bike.imageURL}}"
+                        /></label><br>
+                </div>
+                <div class="middle">
+                    <label for="">Title: 
+                        <input 
+                        type="text" 
+                        name="title" 
+                        required 
+                        minlength="3" 
+                        maxlength="24"
+                        [(ngModel)]="bike.title"
+                        #title='ngModel'
+                        placeholder="{{bike.title}}"
+                        /></label><br>
+
+                    <label for="">Description: <br>
+                        <input
+                        class="description"
+                        type="textbox" 
+                        name="description" 
+                        required 
+                        minlength="3" 
+                        maxlength="200"
+                        [(ngModel)]="bike.description"
+                        #description='ngModel'
+                        placeholder="{{bike.description}}"
+                        /></label><br>
+                </div>
+                <div class="right">
+                    <label for="">Price: 
+                        <input 
+                        type="number" 
+                        name="price" 
+                        required 
+                        min="1"
+                        [(ngModel)]="bike.price"
+                        #price='ngModel'
+                        placeholder="{{bike.price}}"
+                        /></label><br>
+                        
+                    <label for="">Location: 
+                        <input 
+                        type="text" 
+                        name="location" 
+                        required 
+                        minlength="3" 
+                        maxlength="24"
+                        [(ngModel)]="bike.location"
+                        #location='ngModel'
+                        placeholder="{{bike.location}}"
+                        /></label><br>
+                    
+                    <div *ngIf="currentUserInfo" ng-hide="true">
+                    <label for="">UserID: 
+                        <input 
+                        type="text" 
+                        name="userID"
+                        value="{{currentUserInfo._id}}"
+                        required 
+                        minlength="3" 
+                        maxlength="24"
+                        [(ngModel)]="bike.userID"
+                        #userID='ngModel'
+                        placeholder="{{currentUserInfo._id}}"
+                        /></label><br>
+                        <input [ngStyle]="{'color': 'white', 'background-color': 'green', 'width': '75px', 'height': '50px'}" type="submit" value="Update">
+                        <input (click)="delete(bike._id)" [ngStyle]="{'color': 'white', 'background-color': 'red', 'width': '75px', 'height': '50px'}" value="Delete">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
