@@ -18,6 +18,7 @@ export class RegistrationComponent implements OnInit {
     onSubmit(value: User) {
         this.userService.register(value).subscribe(user => {
         this.router.navigateByUrl('browse');
+        this.userService.checkNavSwitch();
     });
   }
 }

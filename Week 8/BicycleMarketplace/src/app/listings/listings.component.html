@@ -28,7 +28,7 @@
                         placeholder="Title"
                         /></label><br>
 
-                    <label for="">Description: 
+                    <label for="">Description: <br>
                         <input 
                         class="description"
                         type="text" 
@@ -80,96 +80,99 @@
                         /></label><br>
                     </div>
 
-                <input [ngStyle]="{'color': 'white', 'background-color': 'green', 'width': '75px', 'height': '50px'}" [disabled]="bikeData.invalid" type="submit" value="Create">
+                <input [ngStyle]="{'color': 'white', 'background-color': 'green', 'width': '75px', 'height': '40px', 'margin': '5px'}" [disabled]="bikeData.invalid" type="submit" value="Create">
                 </div>
             </form>
         </div>
     </div>
     <div class="bottom">
         <h1>Edit/Delete Listings</h1>
-        <div class="bikes" *ngFor="let bike of bikes">
-            <form #bikeUpdate='ngForm' (submit)="onUpdate(bike._id, bikeUpdate.value)">
-                <div class="image">
-                    <img src="{{bike.imageURL}}" alt="">
-                    <label for="">Image Url: 
-                        <input 
-                        type="text" 
-                        name="imageURL" 
-                        required 
-                        minlength="3" 
-                        [(ngModel)]="bike.imageURL"
-                        #imageURL='ngModel'
-                        placeholder="{{bike.imageURL}}"
-                        /></label><br>
-                </div>
-                <div class="middle">
-                    <label for="">Title: 
-                        <input 
-                        type="text" 
-                        name="title" 
-                        required 
-                        minlength="3" 
-                        maxlength="24"
-                        [(ngModel)]="bike.title"
-                        #title='ngModel'
-                        placeholder="{{bike.title}}"
-                        /></label><br>
-
-                    <label for="">Description: <br>
-                        <input
-                        class="description"
-                        type="textbox" 
-                        name="description" 
-                        required 
-                        minlength="3" 
-                        maxlength="200"
-                        [(ngModel)]="bike.description"
-                        #description='ngModel'
-                        placeholder="{{bike.description}}"
-                        /></label><br>
-                </div>
-                <div class="right">
-                    <label for="">Price: 
-                        <input 
-                        type="number" 
-                        name="price" 
-                        required 
-                        min="1"
-                        [(ngModel)]="bike.price"
-                        #price='ngModel'
-                        placeholder="{{bike.price}}"
-                        /></label><br>
-                        
-                    <label for="">Location: 
-                        <input 
-                        type="text" 
-                        name="location" 
-                        required 
-                        minlength="3" 
-                        maxlength="24"
-                        [(ngModel)]="bike.location"
-                        #location='ngModel'
-                        placeholder="{{bike.location}}"
-                        /></label><br>
-                    
-                    <div *ngIf="currentUserInfo" ng-hide="true">
-                    <label for="">UserID: 
-                        <input 
-                        type="text" 
-                        name="userID"
-                        value="{{currentUserInfo._id}}"
-                        required 
-                        minlength="3" 
-                        maxlength="24"
-                        [(ngModel)]="bike.userID"
-                        #userID='ngModel'
-                        placeholder="{{currentUserInfo._id}}"
-                        /></label><br>
-                        <input [ngStyle]="{'color': 'white', 'background-color': 'green', 'width': '75px', 'height': '50px'}" type="submit" value="Update">
-                        <input (click)="delete(bike._id)" [ngStyle]="{'color': 'white', 'background-color': 'red', 'width': '75px', 'height': '50px'}" value="Delete">
+        <div class="bikesContainer" *ngFor="let bike of bikes">
+            <div *ngIf="currentUserID === bike.userID" class="bikes"> 
+                <form #bikeUpdate='ngForm' (submit)="onUpdate(bike._id, bikeUpdate.value)">
+                    <div class="image">
+                        <label for="">Image Url: 
+                            <input 
+                            type="text" 
+                            name="imageURL" 
+                            required 
+                            minlength="3" 
+                            [(ngModel)]="bike.imageURL"
+                            #imageURL='ngModel'
+                            placeholder="{{bike.imageURL}}"
+                            /></label><br>
+                        <img src="{{bike.imageURL}}" alt="">
                     </div>
-                </div>
-            </form>
+                    <div class="middle">
+                        <label for="">Title: 
+                            <input 
+                            type="text" 
+                            name="title" 
+                            required 
+                            minlength="3" 
+                            maxlength="24"
+                            [(ngModel)]="bike.title"
+                            #title='ngModel'
+                            placeholder="{{bike.title}}"
+                            /></label><br>
+
+                        <label for="">Description: <br>
+                            <input
+                            class="description"
+                            type="textbox" 
+                            name="description" 
+                            required 
+                            minlength="3" 
+                            maxlength="200"
+                            [(ngModel)]="bike.description"
+                            #description='ngModel'
+                            placeholder="{{bike.description}}"
+                            /></label><br>
+                    </div>
+                    <div class="right">
+                        <label for="">Price: 
+                            <input 
+                            type="number" 
+                            name="price" 
+                            required 
+                            min="1"
+                            [(ngModel)]="bike.price"
+                            #price='ngModel'
+                            placeholder="{{bike.price}}"
+                            /></label><br>
+                            
+                        <label for="">Location: 
+                            <input 
+                            type="text" 
+                            name="location" 
+                            required 
+                            minlength="3" 
+                            maxlength="24"
+                            [(ngModel)]="bike.location"
+                            #location='ngModel'
+                            placeholder="{{bike.location}}"
+                            /></label><br>
+                        
+                        <div *ngIf="currentUserInfo" ng-hide="true">
+                        <label for="">UserID: 
+                            <input 
+                            type="text" 
+                            name="userID"
+                            value="{{currentUserInfo._id}}"
+                            required 
+                            minlength="3" 
+                            maxlength="24"
+                            [(ngModel)]="bike.userID"
+                            #userID='ngModel'
+                            placeholder="{{currentUserInfo._id}}"
+                            /></label><br>
+                            <!-- showing how to do inline styling as well -->
+                            <input [ngStyle]="{'color': 'white', 'background-color': 'green', 'width': '75px', 'height': '25px', 'margin': '5px'}" type="submit" value="Update">
+                            <input (click)="delete(bike._id)" [ngStyle]="{'text-align': 'center', 'color': 'white', 'background-color': 'red', 'width': '75px', 'height': '25px', 'margin': '5px'}" value="Delete">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

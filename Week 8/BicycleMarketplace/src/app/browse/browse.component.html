@@ -1,7 +1,13 @@
 <div class="container">
     <div class="search">
-        <form action="">
-            <label for="">Search: <input></label>
+        <form #searchData='ngForm' (submit)="onSubmit($event, searchData.value)">
+            <label for="search">Search: 
+                <input
+                type="text"
+                name="searchBar" 
+                placeholder="search"
+                >
+            </label>
             <input [ngStyle]="{'background-color': 'blue', 'width': '75px', 'height': '25px', 'display': 'inline-block'}"  type="submit" value="Search">
         </form>
     </div>
@@ -12,14 +18,21 @@
             </div>
             <div class="middle">
                 <h1>{{bike.title}}</h1>
-                <p>Description: {{bike.description}}</p>
+                <p>{{bike.description}}</p>
             </div>
             <div class="right">
                 <h2>${{bike.price}}</h2>
-                <h5>Location: {{bike.location}}</h5>
-                <input *ngIf="currentUserInfo._id !== bike.userID" (click)="delete(bike._id)" [ngStyle]="{'color': 'white', 'background-color': 'red', 'width': '75px', 'height': '50px'}"  type="submit" value="Delete">
-                <input *ngIf="currentUserInfo._id === bike.userID" (click)="contact(bike._id)" [ngStyle]="{'color': 'white', 'background-color': 'yellow', 'width': '75px', 'height': '50px'}"  type="submit" value="Contact">
+                <h5>{{bike.location}}</h5>
+                <input *ngIf="currentUserInfo._id === bike.userID" (click)="delete(bike._id)" [ngStyle]="{'color': 'white', 'background-color': 'red', 'width': '75px', 'height': '50px'}"  type="submit" value="Delete">
+                <input *ngIf="currentUserInfo._id !== bike.userID" (click)="contact(bike.userID)" [ngStyle]="{'color': 'white', 'background-color': 'yellow', 'width': '75px', 'height': '50px'}"  type="submit" value="Contact">
             </div>
         </div>
+    </div>
+    <div *ngIf="BikesUserContactInfo" class="email">
+        <div>
+            {{BikesUserContactInfo.firstName}}
+            {{BikesUserContactInfo.email}}
+        </div>
+
     </div>
 </div>

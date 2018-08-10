@@ -28,5 +28,5 @@
 
     <label *ngIf="password.touched && password.errors"><small>{{ password.errors | json }}</small><br></label>
         
-    <input [disabled]="formData.invalid" [ngStyle]="{'color': 'white', 'background-color': 'green', 'width': '200px'}" type="submit" value="Login">
+    <input [disabled]="formData.invalid" [ngStyle]="{'color': 'white', 'background-color': 'green', 'width': '200px', 'margin-top': '10px'}" type="submit" value="Login">
 </form>

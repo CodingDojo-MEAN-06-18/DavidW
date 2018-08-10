@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     onSubmit(value: User) {
         this.userService.login(value).subscribe(user => {
         this.router.navigateByUrl('browse');
-        this.userService.flipSwitch();
+        this.userService.checkNavSwitch();
         });
     }
 }

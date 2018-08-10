@@ -11,7 +11,7 @@ import { BehaviorSubject} from 'rxjs';
 
 export class UserService {
     private baseUrl = '/api/users';
-    serviceSwitch: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    NavSwitch: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
     constructor(private http: HttpClient, private cookieService: CookieService) {}
   
@@ -31,20 +31,25 @@ export class UserService {
     }
     
     // added from lecture
-    isAuthed(): boolean {
-        return true;
-        // const expired = parseInt(this.cookieService.get('expiration'), 10);
-        // const userID = this.cookieService.get('userID');
-        
-        // const session = this.cookieService.get('session');
-        
-        // return session && expired && userID && expired > Date.now();
+    isLoggedIn(): boolean {
+        // return true;
+        const expired = parseInt(this.cookieService.get('expiration'), 10);
+        const userID = this.cookieService.get('userID');
+        const session = this.cookieService.get('session');
+
+        return Boolean(session && expired && userID && expired > Date.now());
     }
 
     // this turns the nav bar on and should be switched back to off once we figure out logout
-    flipSwitch(){
-        console.log('flipping switch and serviceSwitch = ', this.serviceSwitch )
-        return this.serviceSwitch.next(true);
+    checkNavSwitch(){
+        let test = this.isLoggedIn()
+        if (test) {
+            // console.log('You are logged in')
+            this.NavSwitch.next(true);
+        } else {
+            // console.log('You are not logged in, please go to the home page and log in');
+            this.NavSwitch.next(false);
+        }
     }
 
     // should log out user.....

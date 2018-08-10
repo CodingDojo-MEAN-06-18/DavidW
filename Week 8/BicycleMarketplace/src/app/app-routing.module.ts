@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowseComponent } from './browse/browse.component';
 import { ListingsComponent } from './listings/listings.component';
 import { HomeComponent } from './home/home.component';
+import { UserGuard } from './route-guards/user.guard';
 
 const routes: Routes = [
     {
@@ -20,10 +21,20 @@ const routes: Routes = [
     {
         path: 'browse',
         component: BrowseComponent,
+        canActivate: [UserGuard]
     },
     {
         path: 'listings',
-        component: ListingsComponent
+        component: ListingsComponent,
+        canActivate: [UserGuard]
     }
 ]
-export const routing = RouterModule.forRoot(routes);
+
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+})
+
+export class AppRoutingModule { }
+// export const routing = RouterModule.forRoot(routes);

@@ -20,8 +20,9 @@ export class BrowseComponent implements OnInit {
     otherUsersBikes = []
 
     currentUserID = '';
-    currentUserInfo = null;
+    currentUserInfo;
     bikes = []
+    BikesUserContactInfo = null;
     
     constructor( 
         private cookieService: CookieService, 
@@ -34,6 +35,7 @@ export class BrowseComponent implements OnInit {
         this.currentUserID = this.cookieService.get('userID')
         this.getCurrentUser(this.currentUserID);
         this.getBikes();
+        this.userService.checkNavSwitch();
     }
   
     getCurrentUser(currentUserID){
@@ -45,17 +47,47 @@ export class BrowseComponent implements OnInit {
     getBikes(){
         this.bikeService.getBikes().subscribe(bikes => {
             this.bikes = bikes;
-          });
+        });
     }
 
     delete(id: string) {    
         this.bikeService.deleteBike(id).subscribe(
-          updatedBike => {
-            this.bikes = this.bikes.filter(bike => bike._id !== id);
-          },
-          error => {
-            console.log('error', error);
-              }
+            updatedBike => {
+                this.bikes = this.bikes.filter(bike => bike._id !== id);
+            },
+            error => {
+                console.log('error', error);
+            }
         );
-      }
+    }
+
+    searchBar(event: Event, info){
+        event.preventDefault();    
+        console.log(info)
+    }
+    
+    contact(bikesUserId){
+
+        // var promise1 = new Promise(function(resolve, reject) {
+        //     setTimeout(resolve, 100, 'foo');
+        //   });
+          
+        //   console.log(promise1);
+
+        // function resolve() {
+        //     this.userService.getUserInfo(bikesUserId).subscribe(user => {
+        //             this.BikesUserContactInfo = user
+        //         }, 1000, this.BikesUserContactInfo = undefined);
+        //     }
+        // }
+        let temp = undefined
+        this.userService.getUserInfo(bikesUserId).subscribe(user => {
+            temp = user
+            var myVar = setTimeout(setContactInfo, 10000);
+        });
+
+        function setContactInfo() {
+            this.BikesUserContactInfo = temp
+        }
+    }
 }

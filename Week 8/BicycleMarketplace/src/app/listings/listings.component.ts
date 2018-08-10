@@ -31,6 +31,7 @@ export class ListingsComponent implements OnInit {
         this.currentUserID = this.cookieService.get('userID')
         this.getCurrentUser(this.currentUserID);
         this.getBikes();
+        this.userService.checkNavSwitch();
     }
 
     getCurrentUser(currentUserID){

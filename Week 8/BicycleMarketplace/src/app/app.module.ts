@@ -7,7 +7,8 @@ import { CookieModule } from 'ngx-cookie';
 import { CookieService } from 'ngx-cookie-service';
 
 //routing and services
-import { routing } from './/app-routing.module';
+// import { routing } from './app-routing.module'
+import { AppRoutingModule } from './app-routing.module';
 import * as fromServices from './services';
 
 // components
@@ -18,7 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegistrationComponent } from './home/registration/registration.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { RandomBikeComponent } from './home/random-bike/random-bike.component';
+import { UserGuard } from './route-guards/user.guard';
 
 @NgModule({
   declarations: [
@@ -29,16 +30,17 @@ import { RandomBikeComponent } from './home/random-bike/random-bike.component';
     LoginComponent,
     RegistrationComponent,
     NavBarComponent,
-    RandomBikeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    routing,
+    // routing,
+    AppRoutingModule,
     CookieModule.forRoot(),
   ],
-  providers: [...fromServices.services, CookieService],
+//   providers: [...fromServices.services, CookieService],
+  providers: [...fromServices.services, CookieService, UserGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

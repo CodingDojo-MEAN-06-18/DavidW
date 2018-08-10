@@ -16,11 +16,11 @@ h1, p{
     border: 2px solid black;
     align-content: center;
     align-items: center;
-    width: 625px;
+    width: 575px;
 }
 .container{
     background-color: grey;
-    width: 640px;
+    width: 600px;
     padding: 15px;
 }
 .search{
@@ -41,11 +41,23 @@ h1, p{
     padding: 0px;
     margin-left: auto;
     margin-right: auto;
-    width: 575px;
+    width: 500px;
     background-color: grey;
 }
 .image, .middle, .right{
     display: inline-block;
     vertical-align: top;
-    margin: 20px;
+    margin: 5px;
+}
+.image{
+    width: 150px;
+}
+.middle{
+    width: 200px;
+}
+.right{
+    width: 100px;
+}
+h2{
+    margin: 0px;
 }

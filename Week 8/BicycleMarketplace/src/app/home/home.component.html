@@ -1,8 +1,18 @@
 <div id="wrapper">
     <div id="top">
         <h2 [ngStyle]="{'color': 'blue'}">Bike of the day!</h2>
-        <div id="randomBike">
-            <app-random-bike></app-random-bike>
+        <div *ngIf="randomBike" id="randomBike">      
+            <div class="image">
+                <img src="{{randomBike.imageURL}}" alt="users bike">
+            </div>
+            <div class="middle">
+                <h1>{{randomBike.title}}</h1>
+                <p>{{randomBike.description}}</p>
+            </div>
+            <div class="right">
+                <h2>${{randomBike.price}}</h2>
+                <h5>{{randomBike.location}}</h5>
+            </div>
         </div>
     </div>
     <div id="bottom">

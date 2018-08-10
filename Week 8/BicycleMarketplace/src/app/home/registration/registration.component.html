@@ -72,5 +72,5 @@
     <label *ngIf="confirmPassword.touched && confirmPassword.errors"><small>{{ confirmPassword.errors | json }}</small><br></label>
     <label *ngIf="confirmPassword.valid && confirmPassword.value !== password.value"><small>Your password does not match!!</small><br></label>
     
-    <input [ngStyle]="{'color': 'white', 'background-color': 'blue', 'width': '250px'}" [disabled]="formData.invalid" type="submit" value="Register">
+    <input [ngStyle]="{'color': 'white', 'background-color': 'blue', 'width': '250px', 'margin-top': '10px'}" [disabled]="formData.invalid" type="submit" value="Register">
 </form>

@@ -18,16 +18,11 @@ export class AppComponent implements OnInit {
     constructor(private router: Router, private userService: UserService){}
 
     ngOnInit(){
-        this.userService.serviceSwitch.subscribe(
-            (serviceSwitch) => {
-                // console.log('what is the service switch ', serviceSwitch)
-            this.navSwitch.next(serviceSwitch); 
-        })
-      }
-
-    logOut(){
-        console.log("logging out")
-        this.router.navigate(['/'])
+        // this.userService.checkNavSwitch()
+        this.userService.NavSwitch.subscribe(
+            (NavSwitch) => {
+                this.navSwitch.next(NavSwitch); 
+            })
     }
 }
 

@@ -7,7 +7,7 @@ h1, p{
     margin: 0px;
 }
 .description{
-    width: 50px;
+    width: 125px;
     height: 100px;
     text-align: top;
 }
@@ -17,6 +17,7 @@ h1, p{
     border: 2px solid black;
     align-content: center;
     align-items: center;
+    width: 600px;
 }
 .bikes{
     border: 2px solid black;
@@ -24,19 +25,22 @@ h1, p{
     padding: 0px;
     margin-left: auto;
     margin-right: auto;
-    width: 600px;
+    width: 500px;
     background-color: white;
 }
-.image, .middle, .right{
+.topImage, .topMiddle, .topRight, .image, .middle, .right{
     display: inline-block;
     vertical-align: top;
-    margin: 20px;
+    margin: 5px;
     width: 150px;
 }
 input{
-    border: 1px solid black;
-    
+    border: 2px solid black;
 }
-/* .image{
-    width: 200px;
-} */
+#createContent{
+    border: 2px solid black;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}

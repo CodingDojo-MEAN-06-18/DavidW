@@ -2,7 +2,6 @@ const Bike = require('mongoose').model('Bike');
 const path = require('path');
 
 module.exports = {
-    // gets all the bikes in mongodb
     index(request, response) { 
         Bike.find(request.body)
         .then(data => {

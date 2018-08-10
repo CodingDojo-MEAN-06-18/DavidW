@@ -17,8 +17,8 @@ export class NavBarComponent implements OnInit {
   logOff(event: Event){
     event.preventDefault();    
     this.userService.logout().subscribe(user => {
+        this.userService.isLoggedIn()
         this.router.navigateByUrl('home');
-        // this.userService.flipSwitch();
         });
     }
 
