@@ -42,7 +42,8 @@ module.exports = {
         },
     };
 
-// function to use during login that stores session, deletes the cookie password if stored and adds some cookies for us to use in the program
+// function to use during login that stores session, deletes the cookie password 
+// if stored and adds some cookies for us to use in the program
 function completeLogin(request, response, user) {
     request.session.user = user.toObject();
     delete request.session.user.password;

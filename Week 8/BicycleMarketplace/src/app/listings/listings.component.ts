@@ -39,11 +39,13 @@ export class ListingsComponent implements OnInit {
             this.currentUserInfo = user
         });
     }
+    // onSubmit(event: Event, form: NgForm) {
     onSubmit(value: Bike) {
         this.bikeService.createBike(value).subscribe(bike => {
             this.router.navigateByUrl('/listings');
             this.getBikes()
         });
+        // form().reset
     }
 
     getBikes(){

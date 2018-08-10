@@ -41,6 +41,8 @@ const userSchema = new Schema ({
 userSchema.plugin(uniqueValidator, { message: '{PATH} must be unique.' });
 
 // added from lecture
+
+// im guessing this goes before the user schema is made
 userSchema.pre('save', function(next) {
     if (!this.isModified('password')) {
       return next();

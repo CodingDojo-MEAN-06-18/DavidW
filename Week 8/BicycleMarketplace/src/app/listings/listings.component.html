@@ -2,7 +2,9 @@
     <div class="top">
         <h1>Create Listing</h1>
         <div id="createContent">
-            <form #bikeData='ngForm' (submit)="onSubmit(bikeData.value)">
+            <form (submit)="onSubmit(bikeData.value)" #bikeData='ngForm'>
+                <!-- form reset -->
+            <!-- <form (submit)='onSubmit($event, bikeData)' #bikeData='ngForm'> -->
                 <div class="topImage">
                     <label for="">Image Url: 
                         <input 
