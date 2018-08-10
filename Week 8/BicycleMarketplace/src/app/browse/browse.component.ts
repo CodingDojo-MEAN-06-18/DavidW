@@ -66,6 +66,9 @@ export class BrowseComponent implements OnInit {
         console.log(info)
     }
     
+
+
+    // edit contact clicked button callback/promise or set timeout
     contact(bikesUserId){
 
         // var promise1 = new Promise(function(resolve, reject) {
