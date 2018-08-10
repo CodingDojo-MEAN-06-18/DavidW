@@ -7,6 +7,8 @@ import { UserService } from '../services'
 // can i use thise instead since i have the index? 
 // import { UserService } from '../services/????'
 
+// question here about index...
+
 @Injectable()
 
 export class UserGuard implements CanActivate {
